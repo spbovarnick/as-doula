@@ -1,0 +1,23 @@
+.xContainer {
+  transition: all 200ms;
+}
+
+.xContainer.visible {
+  opacity: 1;
+}
+
+.xContainer.invisible {
+  opacity: 1;
+}
+
+.burgerContainer {
+  transition: display 600ms;
+}
+
+.burgerContainer.visible {
+  opacity: 1;
+}
+
+.burgerContainer.invisible {
+  opacity: 1;
+}
