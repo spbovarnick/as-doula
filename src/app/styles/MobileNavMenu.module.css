@@ -1,23 +1,11 @@
-.xContainer {
-  transition: all 200ms;
+.mobileMenu {
+  transition: transform ease-in-out 200ms;
 }
 
-.xContainer.visible {
-  opacity: 1;
+.mobileMenu.open {
+  transform: translateX(0);
 }
 
-.xContainer.invisible {
-  opacity: 1;
-}
-
-.burgerContainer {
-  transition: display 600ms;
-}
-
-.burgerContainer.visible {
-  opacity: 1;
-}
-
-.burgerContainer.invisible {
-  opacity: 1;
+.mobileMenu.closed {
+  transform: translateX(100%);
 }
