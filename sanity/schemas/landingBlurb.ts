@@ -9,7 +9,8 @@ export default defineType({
       name: "copy",
       title: "Copy",
       type: "array",
-      of: [{type: "block"}]
+      of: [{type: "block"}],
+      validation: (rule) => rule.required(),
     })
   ]
 })

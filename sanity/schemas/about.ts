@@ -9,7 +9,23 @@ export default defineType({
       name: "copy",
       title: "Copy",
       type: "array",
-      of: [{type: "block"}]
+      of: [{type: "block"}],
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "headshot",
+      title: "Headshot",
+      type: "image",
+      validation: (Rule) => Rule.required().assetRequired(),
+      fields: [
+        defineField({
+          name: "alt",
+          title: "Alt Text",
+          type: "string",
+          description: "This text is used for optimize accessibility",
+          validation: (rule) => rule.required(),
+        })
+      ]
     })
   ]
 })
