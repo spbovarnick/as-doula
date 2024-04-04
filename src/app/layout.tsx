@@ -1,3 +1,4 @@
+import "server-only"
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -18,10 +19,12 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const service: ServiceNavQueryResponse[] = await sanityFetch({
+  const service: ServiceNavQueryResponse[] = await sanityFetch<ServiceNavQueryResponse[]>({
     query: servicesNavQuery,
     tags: ["service"],
   });
+
+  console.log(service)
 
   return (
     <html lang="en">

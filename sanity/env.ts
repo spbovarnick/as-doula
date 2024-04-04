@@ -1,5 +1,3 @@
-import { assert } from "console"
-
 export const apiVersion =
   process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2024-03-29';
 

@@ -1,26 +1,10 @@
 import "server-only";
+
 import {
-  createClient,
-  type ClientConfig,
   type QueryParams
-} from "next-sanity";
-import {
-  projectId,
-  dataset,
-  apiVersion,
-  token,
-  useCdn,
-} from "../../../sanity/env";
+} from "@sanity/client";
 
-const config: ClientConfig = {
-  projectId,
-  dataset,
-  apiVersion,
-  token,
-  useCdn
-};
-
-const client = createClient(config);
+import { client } from '../../../sanity/lib/client';
 
 export async function sanityFetch<QueryResponse>({
   query,
@@ -32,6 +16,8 @@ export async function sanityFetch<QueryResponse>({
   tags: string[];
 }): Promise<QueryResponse> {
   try {
+    console.log('query:', query)
+    console.log('qParams', qParams)
     return client.fetch<QueryResponse>(query, qParams || {}, {
       cache: process.env.NODE_ENV === "development" ? "no-cache" : "force-cache",
       next: { tags },
