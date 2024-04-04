@@ -1,5 +1,5 @@
 .mobileMenu {
-  transition: transform ease-in-out 200ms;
+  transition: all ease-in-out 200ms;
 }
 
 .mobileMenu.open {

@@ -19,16 +19,16 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const service: ServiceNavQueryResponse[] = await sanityFetch<ServiceNavQueryResponse[]>({
+  const services: ServiceNavQueryResponse[] = await sanityFetch<ServiceNavQueryResponse[]>({
     query: servicesNavQuery,
     tags: ["service"],
   });
 
-  console.log(service)
+  console.log(services)
 
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className} relative min-h-screen`}>
         <Nav />
         {children}
       </body>

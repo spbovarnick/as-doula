@@ -3,5 +3,6 @@ import type { PortableTextBlock, Image } from "sanity"
 
 export const servicesNavQuery = groq`*[_type == "service"]{
   serviceName,
-  slug
+  slug,
+  _id
 }`;

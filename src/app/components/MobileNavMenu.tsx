@@ -18,6 +18,7 @@ export default function MobileNavMenu() {
     setServicesAreOpen(!servicesAreOpen);
   }
 
+  console.log(menuIsOpen)
   return (
     <>
     <button
@@ -31,7 +32,7 @@ export default function MobileNavMenu() {
         <Hamburger />
       </div>
     </button>
-    <div className={`${styles.mobileMenu} ${menuIsOpen ? `open ${styles.open}` : `closed ${styles.closed}`} w-9/12 h-9/12 bg-blueOne absolute top-full right-0`}>
+    <div id='slideInMenu' className={`${styles.mobileMenu} ${menuIsOpen ? `open ${styles.open}` : `closed ${styles.closed}`} w-9/12 h-9/12 bg-blueOne absolute top-full right-0`}>
       <ul>
         <li>About</li>
         <li>
