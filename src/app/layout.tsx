@@ -29,7 +29,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} relative min-h-screen`}>
-        <Nav />
+        <Nav services={services} />
         {children}
       </body>
     </html>

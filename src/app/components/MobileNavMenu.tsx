@@ -1,10 +1,12 @@
 'use client';
 import 'animate.css'
 import React, { useState, MouseEvent } from 'react';
+import Link from 'next/link';
 import { Hamburger, Cross, ChevronDown } from './Icons';
 import styles from '../styles/MobileNavMenu.module.css'
+import { NavProps } from './Nav';
 
-export default function MobileNavMenu() {
+const MobileNavMenu: React.FC<NavProps> = ({ services }) => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const [servicesAreOpen, setServicesAreOpen] = useState(false);
 
@@ -46,7 +48,9 @@ export default function MobileNavMenu() {
             </button>
           </div>
           <ul className={``}>
-
+            {services.map((service) => (
+              <Link href={`services#${service.slug}`} key={service._id}>{service.serviceName}</Link>
+            ))}
           </ul>
         </li>
         <li>Contact</li>
@@ -55,3 +59,5 @@ export default function MobileNavMenu() {
     </>
   );
 }
+
+export default MobileNavMenu
