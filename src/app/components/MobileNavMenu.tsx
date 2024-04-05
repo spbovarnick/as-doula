@@ -7,7 +7,7 @@ import styles from '../styles/MobileNavMenu.module.css'
 import { NavProps } from './Nav';
 
 const MobileNavMenu: React.FC<NavProps> = ({ services }) => {
-  const [menuIsOpen, setMenuIsOpen] = useState(false);
+  const [menuIsOpen, setMenuIsOpen] = useState(true);
   const [servicesAreOpen, setServicesAreOpen] = useState(false);
 
   const menuHandler = (e: MouseEvent<HTMLButtonElement>) => {
@@ -20,7 +20,6 @@ const MobileNavMenu: React.FC<NavProps> = ({ services }) => {
     setServicesAreOpen(!servicesAreOpen);
   }
 
-  console.log(menuIsOpen)
   return (
     <>
     <button
@@ -34,20 +33,22 @@ const MobileNavMenu: React.FC<NavProps> = ({ services }) => {
         <Hamburger />
       </div>
     </button>
-    <div id='slideInMenu' className={`${styles.mobileMenu} ${menuIsOpen ? `open ${styles.open}` : `closed ${styles.closed}`} w-9/12 h-9/12 bg-blueOne absolute top-full right-0`}>
+    <div id='slideInMenu' className={`${styles.mobileMenu} ${menuIsOpen ? `open ${styles.open}` : `closed ${styles.closed}`} w-9/12 h-9/12 bg-blueOne absolute top-full right-0 pt-0 pr-0 pl-4 pb-3 text-lg rounded-bl-lg`}>
       <ul>
         <li>About</li>
-        <li>
-          <div className='flex items-center'>
+        <li className=''>
+          <button
+            className='flex items-center'
+            onClick={servicesHandler}
+          >
             <span className='mr-4'>Services</span>
-            <button
-              onClick={servicesHandler}
-              className={`${servicesAreOpen ? 'orgin-center -rotate-180' : ''} transition-transform delay-200`}
+            <span
+              className={`${servicesAreOpen ? '' : 'orgin-center -rotate-180'} transition-transform delay-200`}
             >
               <ChevronDown />
-            </button>
-          </div>
-          <ul className={``}>
+            </span>
+          </button>
+          <ul className={`${servicesAreOpen ? 'max-h-96' : 'max-h-0'} ${styles.services} overflow-hidden pl-3 text-base`}>
             {services.map((service) => (
               <Link href={`services#${service.slug}`} key={service._id}>{service.serviceName}</Link>
             ))}
