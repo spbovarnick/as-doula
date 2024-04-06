@@ -7,7 +7,7 @@ import styles from '../styles/MobileNavMenu.module.css'
 import { NavProps } from './Nav';
 
 const MobileNavMenu: React.FC<NavProps> = ({ services }) => {
-  const [menuIsOpen, setMenuIsOpen] = useState(true);
+  const [menuIsOpen, setMenuIsOpen] = useState(false);
   const [servicesAreOpen, setServicesAreOpen] = useState(false);
 
   const menuHandler = (e: MouseEvent<HTMLButtonElement>) => {

@@ -1,6 +1,6 @@
 import "server-only"
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Libre_Baskerville, Lato } from "next/font/google";
 import "./globals.css";
 import Nav from "./components/Nav";
 import { sanityFetch } from "./lib/sanityFetch";
@@ -8,6 +8,22 @@ import { servicesNavQuery } from "@/app/lib/queries";
 import { ServiceNavQueryResponse } from "@/app/lib/types"
 
 const inter = Inter({ subsets: ["latin"] });
+
+const libre_baskerville = Libre_Baskerville({
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: '--font-libre-baskerville',
+});
+
+const lato = Lato({
+  weight: ["100", "300", "400", "700", "900"],
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-lato",
+});
 
 export const metadata: Metadata = {
   title: "Annie Scott, Doula",
@@ -24,11 +40,9 @@ export default async function RootLayout({
     tags: ["service"],
   });
 
-  console.log(services)
-
   return (
-    <html lang="en">
-      <body className={`${inter.className} relative min-h-screen`}>
+    <html lang="en" className={`${inter.className} ${libre_baskerville.variable} ${lato.variable} relative min-h-screen`}>
+      <body className="font-lato">
         <Nav services={services} />
         {children}
       </body>

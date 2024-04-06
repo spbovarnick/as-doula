@@ -8,6 +8,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        lato: ["var(--font-lato)"],
+        libre_baskerville: ["var(--font-libre-baskerville)"]
+      },
       colors: {
         "blueOne": "#8DA1B9",
         "blueTwo": "#95ADB6",
