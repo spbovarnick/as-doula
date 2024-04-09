@@ -6,3 +6,5 @@ export const servicesNavQuery = groq`*[_type == "service"]{
   "slug": slug.current,
   _id
 }`;
+
+export const landingBlurbQuery = groq`*[_type == "landingBlurb"][0]`
