@@ -1,4 +1,5 @@
-import type { PortableTextBlock } from "sanity";
+import { PortableTextBlock } from "sanity";
+
 
 export interface ServiceNavQueryResponse {
   serviceName?: string;
