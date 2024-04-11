@@ -8,3 +8,5 @@ export const servicesNavQuery = groq`*[_type == "service"]{
 }`;
 
 export const landingBlurbQuery = groq`*[_type == "landingBlurb"][0]`
+
+export const testimonialQuery = groq`*[_type == "testimonial"]`

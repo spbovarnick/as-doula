@@ -10,3 +10,9 @@ export interface ServiceNavQueryResponse {
 export interface LandingBlurbQueryResponse {
   copy: PortableTextBlock[],
 }
+
+export interface TestimonialQueryResponse {
+  testimonial: string;
+  _id: string;
+  client_name: string;
+}
