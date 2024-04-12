@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter, Libre_Baskerville, Lato } from "next/font/google";
 import "./globals.css";
 import Nav from "./components/Nav";
+import Footer from "./components/Footer";
 import { sanityFetch } from "./lib/sanityFetch";
 import { servicesNavQuery } from "@/app/lib/queries";
 import { ServiceNavQueryResponse } from "@/app/lib/types"
@@ -45,6 +46,7 @@ export default async function RootLayout({
       <body className="font-lato">
         <Nav services={services} />
         {children}
+        <Footer />
       </body>
     </html>
   );

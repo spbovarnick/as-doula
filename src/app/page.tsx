@@ -11,6 +11,8 @@ export default async function Home() {
     tags: ["landingBlurb",],
   })
 
+  console.log(landingBlurb)
+
   const testimonials: TestimonialQueryResponse[] = await sanityFetch<TestimonialQueryResponse[]>({
     query: testimonialQuery,
     tags: ["testimonial"],
@@ -18,7 +20,7 @@ export default async function Home() {
 
   return (
     <div>
-      <div className="pt-6 pl-5 pr-5 mb-8">
+      <div className="pt-6 px-5 mb-8">
         <h1 className="font-libre_baskerville text-5xl leading-normal">Annie <br/> Scott</h1>
         <LandingHero copy={landingBlurb} />
         <div className="flex">
