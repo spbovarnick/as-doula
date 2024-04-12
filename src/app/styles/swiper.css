@@ -1,0 +1,35 @@
+.swiper {
+
+}
+
+.swiper-wrapper {
+  background-color: #8DA1B9;
+  padding: 16px;
+  border-radius: 10px;
+  width: fit-content;
+}
+
+.swiper-slide {
+  background-color: white;
+  padding: 16px;
+  border-radius: 10px;
+}
+
+.swiper-slide:last-of-type{
+  margin-right: 0 !important;
+}
+
+.swiper-slide p {
+  width: 100%;
+}
+
+/* normalize swiper-pagination div to sit below swiper */
+.swiper-pagination {
+  width: 100% !important;
+  left: 0% !important;
+  transform: translateX(0%) !important;
+  bottom: 0px !important;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
