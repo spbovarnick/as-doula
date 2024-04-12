@@ -14,7 +14,7 @@ interface TestimonialSwiperProps {
 const TestimonialSwiper: React.FC<TestimonialSwiperProps>  = ({ testimonials }) => {
 
   return (
-    <div className="px-5">
+    <div className="px-5 mb-8">
       <Swiper
         slidesPerView={1.5}
         spaceBetween={12}
