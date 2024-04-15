@@ -42,11 +42,15 @@ export default async function RootLayout({
   });
 
   return (
-    <html lang="en" className={`${inter.className} ${libre_baskerville.variable} ${lato.variable} relative min-h-screen`}>
-      <body className="font-lato">
-        <Nav services={services} />
-        {children}
-        <Footer />
+    <html lang="en" className={`${inter.className} ${libre_baskerville.variable} ${lato.variable}`}>
+      <body className="font-lato ">
+        <div className="relative min-h-screen">
+          <Nav services={services} />
+          <div className="pb-[125px]">
+            {children}
+          </div>
+          <Footer />
+        </div>
       </body>
     </html>
   );

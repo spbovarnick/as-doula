@@ -14,7 +14,7 @@ interface TestimonialSwiperProps {
 const TestimonialSwiper: React.FC<TestimonialSwiperProps>  = ({ testimonials }) => {
 
   return (
-    <div className="px-5 mb-8">
+    <div className="mb-8">
       <Swiper
         slidesPerView={1.5}
         spaceBetween={12}
@@ -34,8 +34,8 @@ const TestimonialSwiper: React.FC<TestimonialSwiperProps>  = ({ testimonials }) 
               {`"${item.testimonial.trimEnd().trimStart()}"`}
             </p>
             <br />
-            <p>
-              {item.client_name}
+            <p className="italic text-lg opacity-80">
+              - {item.client_name}
             </p>
           </SwiperSlide>
         ))}

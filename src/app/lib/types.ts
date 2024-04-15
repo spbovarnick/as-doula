@@ -16,3 +16,15 @@ export interface TestimonialQueryResponse {
   _id: string;
   client_name: string;
 }
+
+export interface AboutQueryResponse {
+  copy: PortableTextBlock[];
+  headshot: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+    };
+    _type: "image";
+    alt: string;
+  };
+}

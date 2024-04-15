@@ -35,7 +35,9 @@ const MobileNavMenu: React.FC<NavProps> = ({ services }) => {
     </button>
     <div id='slideInMenu' className={`${styles.mobileMenu} ${menuIsOpen ? `open ${styles.open}` : `closed ${styles.closed}`} w-9/12 h-9/12 bg-blueOne absolute top-full right-0 pt-0 pr-0 pl-4 pb-3 text-lg rounded-bl-lg`}>
       <ul>
-        <li>About</li>
+        <li>
+          <Link href={"/about"}>About</Link>
+        </li>
         <li className=''>
           <button
             className='flex items-center'
@@ -54,7 +56,9 @@ const MobileNavMenu: React.FC<NavProps> = ({ services }) => {
             ))}
           </ul>
         </li>
-        <li>Contact</li>
+        <li>
+          <Link href={"/contact"}>Contact</Link>
+        </li>
       </ul>
     </div>
     </>

@@ -9,8 +9,6 @@ type LandingHeroProps = {
 
 const LandingHero: React.FC<LandingHeroProps> = ({ copy }) => {
 
-  console.log(copy)
-
   return (
     <div className="mb-16">
       <PortableText value={copy?.copy}  />
