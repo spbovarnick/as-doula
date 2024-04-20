@@ -1,7 +1,12 @@
 
-export default async function AboutLayout(){
+export default async function AboutLayout({
+  children,
+}: {
+  children: React.ReactNode
+}){
   return(
     <>
+      {children}
     </>
   )
 }

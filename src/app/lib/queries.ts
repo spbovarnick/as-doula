@@ -11,4 +11,13 @@ export const landingBlurbQuery = groq`*[_type == "landingBlurb"][0]`
 
 export const testimonialQuery = groq`*[_type == "testimonial"]`
 
-export const aboutQuery = groq`*[_type == "about"][0]`
+export const aboutQuery = groq`*[_type == "about"][0]{
+  ...,
+  headshot{
+    alt,
+    asset -> {
+      ...,
+      metadata
+    }
+  }
+}`
