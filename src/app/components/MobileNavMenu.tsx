@@ -1,14 +1,36 @@
 'use client';
 import 'animate.css'
-import React, { useState, MouseEvent } from 'react';
+import React, { useState, MouseEvent, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { Hamburger, Cross, ChevronDown } from './Icons';
 import styles from '../styles/MobileNavMenu.module.css'
 import { NavProps } from './Nav';
+import { usePathname, useSearchParams } from 'next/navigation';
 
 const MobileNavMenu: React.FC<NavProps> = ({ services }) => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const [servicesAreOpen, setServicesAreOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    if (menuRef.current) {
+      menuIsOpen && setMenuIsOpen(false);
+    }
+  }, [pathname, searchParams]);
+
+  useEffect(() => {
+    const closeSlideMenu = (e: Event) => {
+      if (menuRef.current && e.target instanceof Node && !menuRef.current.contains(e.target)) {
+          menuIsOpen && setMenuIsOpen(false);
+        }
+    };
+
+    document.body.addEventListener('click', closeSlideMenu);
+
+    return () => document.body.removeEventListener('click', closeSlideMenu)
+  }, [menuIsOpen]);
 
   const menuHandler = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -33,7 +55,11 @@ const MobileNavMenu: React.FC<NavProps> = ({ services }) => {
         <Hamburger />
       </div>
     </button>
-    <div id='slideInMenu' className={`${styles.mobileMenu} ${menuIsOpen ? `open ${styles.open}` : `closed ${styles.closed}`} w-9/12 h-9/12 bg-blueOne absolute top-full right-0 pt-0 pr-0 pl-4 pb-3 text-lg rounded-bl-lg`}>
+    <div
+      id='slideInMenu'
+      className={`${styles.mobileMenu} ${menuIsOpen ? `open ${styles.open}` : `closed ${styles.closed}`} w-9/12 h-9/12 bg-blueOne absolute top-full right-0 pt-0 pr-0 pl-4 pb-3 text-lg rounded-bl-lg`}
+      ref={menuRef}
+    >
       <ul>
         <li>
           <Link href={"/about"}>About</Link>
