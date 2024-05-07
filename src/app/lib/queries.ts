@@ -21,3 +21,7 @@ export const aboutQuery = groq`*[_type == "about"][0]{
     }
   }
 }`
+
+export const servicesQuery = groq`*[_type == "service"]`
+
+export const philosophyQuery = groq`*[_type == "servicePhilosophy"][0]`

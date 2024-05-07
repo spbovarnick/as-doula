@@ -1,10 +1,15 @@
 import { PortableTextBlock } from "sanity";
+import { servicesNavQuery } from "./queries";
 
 
 export interface ServiceNavQueryResponse {
   serviceName?: string;
   slug?: string;
   _id: string;
+}
+
+export interface ServicesQueryResponse extends ServiceNavQueryResponse {
+  description: PortableTextBlock[],
 }
 
 export interface LandingBlurbQueryResponse {
@@ -40,4 +45,9 @@ export interface ImageObject {
 export interface AboutQueryResponse {
   copy: PortableTextBlock[];
   headshot: ImageObject;
+}
+
+export interface PhilosophyQueryResponse {
+  philosophy: PortableTextBlock[],
+  _id: string,
 }

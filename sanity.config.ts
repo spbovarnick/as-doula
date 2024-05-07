@@ -12,7 +12,7 @@ import {schema} from './sanity/schema'
 
 const singletonActions = new Set(["publish", "discardChanges", "restore"])
 
-const singletonTypes = new Set([, "about"])
+const singletonTypes = new Set(["landingBlurb", "about", "servicePhilosophy"])
 
 export default defineConfig({
   basePath: '/admin',
@@ -42,6 +42,15 @@ export default defineConfig({
               S.document()
                 .schemaType("about")
                 .documentId("about")
+            ),
+          S.listItem()
+            .title("Service Philosophy")
+            .id("servicePhilosophy")
+            .icon(() => "💡")
+            .child(
+              S.document()
+                .schemaType("servicePhilosophy")
+                .documentId("servicePhilosophy")
             ),
           S.documentTypeListItem("service").title("Service"),
           S.documentTypeListItem("testimonial").title("Testimonial"),

@@ -11,6 +11,7 @@ const MobileNavMenu: React.FC<NavProps> = ({ services }) => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const [servicesAreOpen, setServicesAreOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
@@ -22,14 +23,16 @@ const MobileNavMenu: React.FC<NavProps> = ({ services }) => {
 
   useEffect(() => {
     const closeSlideMenu = (e: Event) => {
-      if (menuRef.current && e.target instanceof Node && !menuRef.current.contains(e.target)) {
-          menuIsOpen && setMenuIsOpen(false);
-        }
+      if (menuRef.current && e.target instanceof Node && !menuRef.current.contains(e.target) && !buttonRef.current?.contains(e.target)) {
+        menuIsOpen && setMenuIsOpen(false);
+      };
     };
 
     document.body.addEventListener('click', closeSlideMenu);
 
-    return () => document.body.removeEventListener('click', closeSlideMenu)
+    return () => {
+      document.body.removeEventListener('click', closeSlideMenu);
+    }
   }, [menuIsOpen]);
 
   const menuHandler = (e: MouseEvent<HTMLButtonElement>) => {
@@ -47,6 +50,7 @@ const MobileNavMenu: React.FC<NavProps> = ({ services }) => {
     <button
       className='absolute top-8 right-6 -translate-y-2/4'
       onClick={menuHandler}
+      ref={buttonRef}
     >
       <div className={`${menuIsOpen ? '' : 'hidden'} animate__animated animate__fadeIn`}>
         <Cross />
@@ -69,7 +73,7 @@ const MobileNavMenu: React.FC<NavProps> = ({ services }) => {
             className='flex items-center'
             onClick={servicesHandler}
           >
-            <span className='mr-4'>Services</span>
+            <Link href={"/services"} className='mr-4'>Services</Link>
             <span
               className={`${servicesAreOpen ? '' : 'orgin-center -rotate-180'} transition-transform delay-200`}
             >
@@ -78,7 +82,7 @@ const MobileNavMenu: React.FC<NavProps> = ({ services }) => {
           </button>
           <ul className={`${servicesAreOpen ? 'max-h-96' : 'max-h-0'} ${styles.services} overflow-hidden pl-3 text-base`}>
             {services.map((service) => (
-              <Link href={`services#${service.slug}`} key={service._id}>{service.serviceName}</Link>
+              <Link href={`/services#${service.slug}`} key={service._id}>{service.serviceName}</Link>
             ))}
           </ul>
         </li>
