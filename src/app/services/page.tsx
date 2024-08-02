@@ -18,13 +18,13 @@ export default async function Services(){
   console.log(services)
 
   return (
-    <div className="px-5 pt-11">
+    <div className="px-5 pt-11 pb-5">
       <div className="pb-5 text-2xl font-libre_baskerville">Philosophy</div>
-      <div className="font-libre_baskerville"></div>
-      <PortableText value={philosophy?.philosophy} />
+      <div className="font-libre_baskerville text-xs">
+        <PortableText value={philosophy?.philosophy} />
+      </div>
       {services?.map((service) => (
         <ServiceSection key={service._id} service={service} />
-
       ))}
 
 
