@@ -17,13 +17,13 @@ const ServiceSection: React.FC<ServiceProps> = ({ service }) => {
   }
 
   return (
-    <>
+    <div className="border-2 rounded-lg p-4 mb-4">
       <button
-        className="flex pt-5 justify-between content-center w-full"
+        className="flex justify-between content-center w-full"
         onClick={serviceHandler}
       >
         <div
-          className="text-xl font-libre_baskerville"
+          className="text-xl font-libre_baskerville mb-2"
         >
           {service?.serviceName}
         </div>
@@ -32,11 +32,11 @@ const ServiceSection: React.FC<ServiceProps> = ({ service }) => {
         </span>
       </button>
       <div
-        className={`${serviceIsOpen ? 'max-h-96' : 'max-h-0'} overflow-hidden transition-[height] delay-200`}
+        className={`${serviceIsOpen ? 'max-h-96' : 'max-h-0'} overflow-hidden transition-[max-height] delay-200 text-xs`}
       >
         <PortableText value={service?.description}/>
       </div>
-    </>
+    </div>
   )
 }
 
