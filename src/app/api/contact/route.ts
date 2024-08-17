@@ -13,7 +13,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import nodemailer from "nodemailer";
 
-export default async function POST(
+export default async function handler(
   request: NextApiRequest,
   response: NextApiResponse ) {
   if (request.method === 'POST') {
