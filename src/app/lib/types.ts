@@ -51,3 +51,9 @@ export interface PhilosophyQueryResponse {
   philosophy: PortableTextBlock[],
   _id: string,
 }
+
+export type FormValues = {
+  name: string
+  email: string
+  message: string
+}

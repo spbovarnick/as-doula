@@ -1,10 +1,10 @@
-import { ContactForm } from "../components/ContactForm"
+import ContactForm from "../components/ContactForm"
 
 export default function Contact() {
   return (
     <div>
       contact
-      <ContactForm></ContactForm>
+      {/* <ContactForm></ContactForm> */}
     </div>
   )
 }
