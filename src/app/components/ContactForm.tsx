@@ -62,15 +62,18 @@ const ContactForm = () => {
           {...register("name")}
           type="text"
           name="name"
-        />
+          className="border-2 border-rose-500"
+          />
         <input
           {...register("email")}
           type="email"
           name="email"
-        />
+          className="border-2 border-rose-500"
+          />
         <textarea
           {...register("message")}
           name="message"
+          className="border-2 border-rose-500"
         />
 
         <input type="submit" />
