@@ -1,4 +1,4 @@
-import { FormState } from "sanity";
+import { FormState } from "../lib/formUtils";
 
 type FieldErrorProps = {
   formState: FormState;
