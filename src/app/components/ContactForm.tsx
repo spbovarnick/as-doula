@@ -57,7 +57,9 @@ const ContactForm = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form
+        // onSubmit={handleSubmit(onSubmit)}
+      >
         <input
           {...register("name")}
           type="text"
