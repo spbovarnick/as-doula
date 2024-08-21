@@ -9,7 +9,8 @@ const getDataset = () => {
   const errorMessage = `Missing environment variable: ${isDevelopment ? 'NEXT_PUBLIC_SANITY_DEV_DATASET' : 'NEXT_PUBLIC_SANITY_PROD_DATASET'
     }`;
 
-  return assertValue(envVar, errorMessage);
+  return assertValue(process.env.NEXT_PUBLIC_SANITY_PROD_DATASET, errorMessage);
+  // return assertValue(envVar, errorMessage);
 };
 
 export const dataset = getDataset();
