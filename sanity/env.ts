@@ -2,21 +2,14 @@ export const apiVersion =
   process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2024-03-29';
 
 const getDataset = () => {
-  // const isDevelopment = process.env.NODE_ENV === "development";
-  let enVar
-  if (process.env.NODE_ENV === 'development') {
-    enVar = process.env.NEXT_PUBLIC_SANITY_DEV_DATASET;
-  }
-  if (process.env.NODE_ENV === "production") {
-    enVar = process.env.NEXT_PUBLIC_SANITY_PROD_DATASET
-  }
-  // const envVar = isDevelopment
-  //   ? process.env.NEXT_PUBLIC_SANITY_DEV_DATASET
-  //   : process.env.NEXT_PUBLIC_SANITY_PROD_DATASET;
-  //   }`;
+  const isDevelopment = process.env.NODE_ENV === "development";
+  const envVar = isDevelopment
+    ? process.env.NEXT_PUBLIC_SANITY_DEV_DATASET
+    : process.env.NEXT_PUBLIC_SANITY_PROD_DATASET;
+  const errorMessage = `Missing environment variable: ${isDevelopment ? 'NEXT_PUBLIC_SANITY_DEV_DATASET' : 'NEXT_PUBLIC_SANITY_PROD_DATASET'
+    }`;
 
-  const errorMessage = `Missing environment variable: ${process.env.NODE_ENV === "development" ? 'NEXT_PUBLIC_SANITY_DEV_DATASET' : 'NEXT_PUBLIC_SANITY_PROD_DATASET'}`
-  return assertValue(enVar, errorMessage);
+  return assertValue(envVar, errorMessage);
 };
 
 export const dataset = getDataset();
