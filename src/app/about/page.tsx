@@ -3,6 +3,7 @@ import { sanityFetch } from "../lib/sanityFetch";
 import { AboutQueryResponse } from "../lib/types";
 import { aboutQuery } from "../lib/queries";
 import ClientImage from "../components/ClientImg";
+import { Portrait } from "../components/Icons";
 
 export default async function About(){
   const content: AboutQueryResponse = await sanityFetch<AboutQueryResponse>({
@@ -13,7 +14,7 @@ export default async function About(){
 
   return (
     <>
-    { content.headshot.asset?.url &&
+    { content.headshot?.asset?.url &&
     <div className="">
       <ClientImage
         img={content.headshot}
