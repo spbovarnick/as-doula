@@ -1,4 +1,3 @@
-import { timeStamp } from "console";
 import { ZodError } from "zod";
 
 export type FormState = {
@@ -22,7 +21,7 @@ export const fromErrorToFormState = (error: unknown) => {
       status: 'ERROR' as const,
       message: '',
       fieldErrors: error.flatten().fieldErrors,
-      timeStamp: Date.now(),
+      timestamp: Date.now(),
     };
   } else if (error instanceof Error) {
     return {
