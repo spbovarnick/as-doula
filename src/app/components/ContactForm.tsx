@@ -5,12 +5,24 @@ import { FormSubmitBtn } from "./FormSubmitBtn";
 import { useFormState } from "react-dom";
 import { EMPTY_FORM_STATE } from "../lib/formUtils";
 import { FieldError } from "./FieldError";
+import { useEffect } from "react";
+import toast  from "react-hot-toast";
 
 const ContactForm = () => {
   const [formState, action] = useFormState(
     createMessage,
     EMPTY_FORM_STATE
   );
+
+  useEffect(() => {
+    if (formState.message) {
+      if (formState.status === "ERROR") {
+        toast.error(formState.message);
+      } else {
+        toast.success(formState.message);
+      }
+    }
+  }, [formState.status, formState.message]);
 
   return (
     <form

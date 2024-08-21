@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import { sanityFetch } from "./lib/sanityFetch";
 import { servicesNavQuery } from "@/app/lib/queries";
 import { ServiceNavQueryResponse } from "@/app/lib/types"
+import ToastProvider from "./components/ToastProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -47,7 +48,7 @@ export default async function RootLayout({
         <div className="relative min-h-screen">
           <Nav services={services} />
           <div className="pb-[125px]">
-            {children}
+            <ToastProvider>{children}</ToastProvider>
           </div>
           <Footer />
         </div>
