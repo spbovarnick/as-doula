@@ -7,12 +7,15 @@ import { EMPTY_FORM_STATE } from "../lib/formUtils";
 import { FieldError } from "./FieldError";
 import { useEffect } from "react";
 import toast  from "react-hot-toast";
+import { useToastMessage } from "@/hooks/useToastMessage";
 
 const ContactForm = () => {
   const [formState, action] = useFormState(
     createMessage,
     EMPTY_FORM_STATE
   );
+
+  useToastMessage(formState);
 
   useEffect(() => {
     if (formState.message) {
