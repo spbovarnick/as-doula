@@ -14,15 +14,16 @@ export default async function About(){
 
   return (
     <>
-    { content.headshot?.asset?.url &&
     <div className="">
+    { content.headshot?.asset?.url ?
       <ClientImage
         img={content.headshot}
         classes={"w-full h-auto object-contain"}
         sizes={"(max-width: 1024px) 100vw, 50vw"}
-      />
-    </div>
+      /> :
+      <Portrait />
     }
+    </div>
     </>
   )
 }
