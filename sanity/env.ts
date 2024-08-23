@@ -9,10 +9,10 @@ const getDataset = () => {
   // const errorMessage = `Missing environment variable: ${isDevelopment ? 'NEXT_PUBLIC_SANITY_DEV_DATASET' : 'NEXT_PUBLIC_SANITY_PROD_DATASET'}`;
 
   if (process.env.NODE_ENV === "development") {
-    return assertValue(process.env.NEXT_PUBLIC_SANITY_DEV_DATASET, "Missing environment variable: NEXT_PUBLIC_SANITY_DEV_DATASET")
+    return assertValue(process.env.NEXT_PUBLIC_SANITY_DEV_DATASET as string, "Missing environment variable: NEXT_PUBLIC_SANITY_DEV_DATASET")
   }
   if (process.env.NODE_ENV === "production") {
-    return assertValue(process.env.NEXT_PUBLIC_SANITY_PROD_DATASET, "Missing environment variable: NEXT_PUBLIC_SANITY_PROD_DATASET")
+    return assertValue(process.env.NEXT_PUBLIC_SANITY_PROD_DATASET as string, "Missing environment variable: NEXT_PUBLIC_SANITY_PROD_DATASET")
   }
 
   // return assertValue(process.env.NEXT_PUBLIC_SANITY_PROD_DATASET, errorMessage);
