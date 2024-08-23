@@ -15,7 +15,7 @@ export default async function About(){
   return (
     <>
     <div className="">
-    { content.headshot?.asset?.url ?
+    { content?.headshot?.asset?.url ?
       <ClientImage
         img={content.headshot}
         classes={"w-full h-auto object-contain"}
