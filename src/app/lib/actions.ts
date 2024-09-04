@@ -3,7 +3,6 @@
 import { z } from "zod";
 import { revalidatePath } from "next/cache";
 import { fromErrorToFormState, toFormState } from "./formUtils";
-let validator = require('validator')
 import sendForm from "./sendForm";
 
 const REG = /^[0-9]{5}/
@@ -11,8 +10,8 @@ const REG = /^[0-9]{5}/
 const createIntakeSchema = z.object({
   firstName: z.string().min(1).max(191),
   lastName: z.string().min(1).max(191),
-  email: z.string().min(1).max(191).refine(validator.isEmail),
-  phoneNumber: z.string().refine(validator.isMobilePhone),
+  email: z.string().min(1).max(191).email(),
+  phoneNumber: z.string().min(12).max(12),
   dueDate: z.string().date(),
   zipCode: z.string().min(5).max(5).regex(REG, "Zip code must be five numerals"),
   location: z.string().optional(),
