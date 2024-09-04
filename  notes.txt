@@ -1,0 +1,2 @@
+8/25
+-Figure out how to confirm mail sent after email actually sends

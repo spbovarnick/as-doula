@@ -3,37 +3,24 @@
 import { z } from "zod";
 import { revalidatePath } from "next/cache";
 import { fromErrorToFormState, toFormState } from "./formUtils";
+let validator = require('validator')
+import sendForm from "./sendForm";
+
+const REG = /^[0-9]{5}/
 
 const createIntakeSchema = z.object({
-  title: z.string().min(1).max(191),
-  text: z.string().min(1).max(191),
+  firstName: z.string().min(1).max(191),
+  lastName: z.string().min(1).max(191),
+  email: z.string().min(1).max(191).refine(validator.isEmail),
+  phoneNumber: z.string().refine(validator.isMobilePhone),
+  dueDate: z.string().date(),
+  zipCode: z.string().min(5).max(5).regex(REG, "Zip code must be five numerals"),
+  location: z.string().optional(),
+  birthDoula: z.string().nullable(),
+  postpartumDoula: z.string().nullable(),
+  siblingSupport: z.string().nullable(),
+  addDetails: z.string().nullable().optional(),
 })
-
-type Message = {
-  id: string;
-  text: string;
-}
-
-let messages: Message[] = [
-  {
-    id: crypto.randomUUID(),
-    text: 'First Msg',
-  },
-  {
-    id: crypto.randomUUID(),
-    text: 'Second Msg',
-  },
-  {
-    id: crypto.randomUUID(),
-    text: 'Third Msg',
-  }
-];
-
-export const getMessages = async (): Promise<Message[]> => {
-  await new Promise((resolve) => setTimeout(resolve, 250));
-
-  return Promise.resolve(messages);
-}
 
 type FormState = {
   message: string;
@@ -47,14 +34,21 @@ export const createMessage = async (
 
   try {
     const data = createIntakeSchema.parse({
-      title: formData.get('title'),
-      text: formData.get('text'),
+      firstName: formData.get('firstName'),
+      lastName: formData.get('lastName'),
+      email: formData.get('email'),
+      phoneNumber: formData.get('phoneNumber'),
+      dueDate: formData.get('dueDate'),
+      zipCode: formData.get('zipCode'),
+      location: formData.get('location'),
+      birthDoula: formData.get('birthDoula'),
+      postpartumDoula: formData.get('postpartumDoula'),
+      siblingSupport: formData.get('siblingSupport'),
+      addDetails: formData.get('addDetails'),
     });
 
-    messages.push({
-      id: crypto.randomUUID(),
-      ...data,
-    });
+    sendForm(data);
+
   } catch (error) {
     return  fromErrorToFormState(error);
   }

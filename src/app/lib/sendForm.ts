@@ -1,51 +1,101 @@
-"use server"
+"use server";
+
 import { FormValues } from "@/app/lib/types";
-import nodemailer from "nodemailer";
-
-
-
+const sgMail = require('@sendgrid/mail');
+const SG_API_KEY = process.env.SG_API_KEY;
+sgMail.setApiKey(SG_API_KEY);
 
 const sendForm = async (data: FormValues) => {
-  const apiEndpoint = '/api/contact';
 
-  console.log(data)
+    const msg = {
+      to: 'spbovarnick@gmail.com',
+      from: 'spbovarnick@gmail.com',
+      subject: `${data.firstName} ${data.lastName} seeking service`,
+      html: `
+      <!doctype html>
+      <html>
+      <style>
+        table {
+          border-collapse: collapse;
+        }
+        td, th {
+          border: 1px solid black;
+          padding: 0.5rem;
+          text-align: left;
+        }
+        ul {
+          padding-left: none;
+        }
+        td {
+          padding-left: .5rem
+        }
+      </style>
+      <head>
+        <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+        <body style="display: block; margin: auto;">
+          <table>
+            <tr>
+              <th>Name:</th>
+              <td>${data.firstName, " ", data.lastName}</td>
+            </tr>
+            <tr>
+              <th>Email:</th>
+              <td><a href="mailto:${data.email}">${data.email}</a></td>
+            </tr>
+            <tr>
+              <th>Phone Number:</th>
+              <td>${data.phoneNumber}</td>
+            </tr>
+            <tr>
+              <th>Estimated Due Date:</th>
+              <td>${data.dueDate}</td>
+            </tr>
+            <tr>
+              <th>Zip Code:</th>
+              <td>${data.zipCode}</td>
+            </tr>
+            <tr>
+              <th>Birth Location:</th>
+              <td>${data.location ? data.location : "n/a"}</td>
+            </tr>
+            <tr>
+              <th>Services Requested:</th>
+              <td>
+                <ul>
+                  ${data.birthDoula ? data.birthDoula : "<li>Birth Doula</li>"}
+                  ${data.siblingSupport ? data.siblingSupport : "<li>Sibling Support</li>"}
+                  ${data.postpartumDoula ? data.postpartumDoula : "<li>Postpartum Doula</li>"}
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <th>Additional Details:</th>
+              <td>${data.addDetails ? data.addDetails : "None"}</td>
+            </tr>
+          </table>
+        </body>
+      </head>
+      </html>
+      `,
+    }
 
-  fetch(apiEndpoint)
-    .then((res) => res.json())
-    .catch((err) => {
-      console.log(err)
-    })
-
-  // fetch(apiEndpoint, {
-  //   method: 'POST',
-  //   body: JSON.stringify(data),
-  // })
-  //   .then((res) => res.json())
-  //   .then((response) => {
-  //     alert(response.message);
-  //   })
-  //   .catch((err) => {
-  //     alert(err)
-  //   })
-
-  // const sgMail = require('@sendgrid/mail')
-  // sgMail.setApiKey(process.env.NEXT_PUBLIC_SENDGRID_API_KEY)
-  // const msg = {
-  //   to: 'test@example.com', // Change to your recipient
-  //   from: 'test@example.com', // Change to your verified sender
-  //   subject: 'Sending with SendGrid is Fun',
-  //   text: 'and easy to do anywhere, even with Node.js',
-  //   html: '<strong>and easy to do anywhere, even with Node.js</strong>',
-  // }
-  // sgMail
-  //   .send(msg)
-  //   .then(() => {
-  //     console.log('Email sent')
-  //   })
-  //   .catch((error:any) => {
-  //     console.error(error)
-  //   })
-
+    try {
+      sgMail
+        .send(msg)
+        .then((response: any) => {
+          console.log(response[0].statusCode)
+          console.log(response[0].headers)
+        })
+        .catch((error: Error) => {
+          console.error('Error', error)
+        })
+    } catch (error: any) {
+      console.error(error)
+      return new Response(error.message)
+    }
 }
+
+
+
 
 export default sendForm

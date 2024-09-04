@@ -1,6 +1,4 @@
 import { PortableTextBlock } from "sanity";
-import { servicesNavQuery } from "./queries";
-
 
 export interface ServiceNavQueryResponse {
   serviceName?: string;
@@ -53,7 +51,15 @@ export interface PhilosophyQueryResponse {
 }
 
 export type FormValues = {
-  name: string
-  email: string
-  message: string
+  firstName: string,
+  lastName: string,
+  email: string,
+  phoneNumber: string,
+  dueDate: string,
+  zipCode: string,
+  location: string,
+  birthDoula: 'on' | null,
+  postpartumDoula: 'on' | null,
+  siblingSupport: 'on' | null,
+  addDetails: string,
 }
