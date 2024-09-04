@@ -12,14 +12,15 @@ import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input/input";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css"
+// import E164Number from "../../../node_modules/libphonenumber-js/types.d.ts"
 
 const ContactForm = () => {
   const [formState, action] = useFormState(
     createMessage,
     EMPTY_FORM_STATE
   );
-  const [phone, setPhone] = useState();
-  const [dueDate, setDueDate] = useState(new Date())
+  const [phone, setPhone] = useState<string | undefined>(undefined);
+  const [dueDate, setDueDate] = useState<Date | null>(new Date())
   const formRef = useRef<HTMLFormElement>(null);
 
   const noScriptFallback = useToastMessage(formState);
