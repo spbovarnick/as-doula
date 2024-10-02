@@ -13,15 +13,20 @@ const sendForm = async (data: FormValues) => {
         from: process.env.EMAIL,
         subject: `Confirming your request for care, ${data.firstName}`,
         html: `
-        <html>
-        <p>Hi ${data.firstName},</p>
-        <p>Thank you for reaching out about my services. This email is just a confirmation that I'll be in touch after reviewing your form.</p>
-        <br/>
-        <br/>
-        <p>Sincerely,</p>
-        <br/>
-        <p>Annie Smith</p>
-        </html>
+        <style>
+          body {
+            font-family
+          }
+        </style>
+        <body>
+          <p>Hi ${data.firstName},</p>
+          <p>Thank you for reaching out about my services. This email is just a confirmation that I'll be in touch after reviewing your form.</p>
+          <br/>
+          <br/>
+          <p>Sincerely,</p>
+          <br/>
+          <p>Annie Smith</p>
+        </body>
         `
       },
       {
