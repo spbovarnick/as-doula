@@ -11,7 +11,7 @@ const createIntakeSchema = z.object({
   firstName: z.string().min(1).max(191),
   lastName: z.string().min(1).max(191),
   email: z.string().min(1).max(191).email(),
-  phoneNumber: z.string().min(12).max(12),
+  phoneNumber: z.string().min(14).max(14),
   dueDate: z.string().date(),
   zipCode: z.string().min(5).max(5).regex(REG, "Zip code must be five numerals"),
   location: z.string().optional(),

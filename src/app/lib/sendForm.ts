@@ -7,84 +7,96 @@ sgMail.setApiKey(SG_API_KEY);
 
 const sendForm = async (data: FormValues) => {
 
-    const msg = {
-      to: 'spbovarnick@gmail.com',
-      from: 'spbovarnick@gmail.com',
-      subject: `${data.firstName} ${data.lastName} seeking service`,
-      html: `
-      <!doctype html>
-      <html>
-      <style>
-        table {
-          border-collapse: collapse;
-        }
-        td, th {
-          border: 1px solid black;
-          padding: 0.5rem;
-          text-align: left;
-        }
-        ul {
-          padding-left: none;
-        }
-        td {
-          padding-left: .5rem
-        }
-      </style>
-      <head>
-        <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-        <body style="display: block; margin: auto;">
-          <table>
-            <tr>
-              <th>Name:</th>
-              <td>${data.firstName, " ", data.lastName}</td>
-            </tr>
-            <tr>
-              <th>Email:</th>
-              <td><a href="mailto:${data.email}">${data.email}</a></td>
-            </tr>
-            <tr>
-              <th>Phone Number:</th>
-              <td>${data.phoneNumber}</td>
-            </tr>
-            <tr>
-              <th>Estimated Due Date:</th>
-              <td>${data.dueDate}</td>
-            </tr>
-            <tr>
-              <th>Zip Code:</th>
-              <td>${data.zipCode}</td>
-            </tr>
-            <tr>
-              <th>Birth Location:</th>
-              <td>${data.location ? data.location : "n/a"}</td>
-            </tr>
-            <tr>
-              <th>Services Requested:</th>
-              <td>
-                <ul>
-                  ${data.birthDoula ? data.birthDoula : "<li>Birth Doula</li>"}
-                  ${data.siblingSupport ? data.siblingSupport : "<li>Sibling Support</li>"}
-                  ${data.postpartumDoula ? data.postpartumDoula : "<li>Postpartum Doula</li>"}
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <th>Additional Details:</th>
-              <td>${data.addDetails ? data.addDetails : "None"}</td>
-            </tr>
-          </table>
-        </body>
-      </head>
-      </html>
-      `,
-    }
+    const msgs = [
+      {
+        to: data.email,
+        from: process.env.EMAIL,
+        subject: `Thanks for reaching out, ${data.firstName}`,
+        html: `
+        <html>
+        <p>thanks!</p>
+        </html>
+        `
+      },
+      {
+        to: process.env.EMAIL,
+        from: process.env.EMAIL,
+        subject: `${data.firstName} ${data.lastName} seeking service`,
+        html: `
+
+
+          <style>
+            table {
+              border-collapse: collapse;
+            }
+            td, th {
+              border: 1px solid black;
+              padding: 0.5rem;
+              text-align: left;
+            }
+            ul {
+              padding-left: none;
+            }
+            td {
+              padding-left: .5rem
+            }
+          </style>
+          <head>
+            <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+          </head>
+          <body style="display: block; margin: auto;">
+            <table>
+              <tr>
+                <th>Name:</th>
+                <td>${data.firstName, " ", data.lastName}</td>
+              </tr>
+              <tr>
+                <th>Email:</th>
+                <td><a href="mailto:${data.email}">${data.email}</a></td>
+              </tr>
+              <tr>
+                <th>Phone Number:</th>
+                <td>${data.phoneNumber}</td>
+              </tr>
+              <tr>
+                <th>Estimated Due Date:</th>
+                <td>${data.dueDate}</td>
+              </tr>
+              <tr>
+                <th>Zip Code:</th>
+                <td>${data.zipCode}</td>
+              </tr>
+              <tr>
+                <th>Birth Location:</th>
+                <td>${data.location ? data.location : "n/a"}</td>
+              </tr>
+              <tr>
+                <th>Services Requested:</th>
+                <td>
+                  <ul>
+                    ${data.birthDoula ? data.birthDoula : "<li>Birth Doula</li>"}
+                    ${data.siblingSupport ? data.siblingSupport : "<li>Sibling Support</li>"}
+                    ${data.postpartumDoula ? data.postpartumDoula : "<li>Postpartum Doula</li>"}
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <th>Additional Details:</th>
+                <td>${data.addDetails ? data.addDetails : "None"}</td>
+              </tr>
+            </table>
+          </body>
+
+        `,
+      }
+    ];
 
     try {
       sgMail
-        .send(msg)
+        .send(msgs)
         .then((response: any) => {
-          console.log(response[0].statusCode)
-          console.log(response[0].headers)
+          console.log(response)
+          console.log(response)
         })
         .catch((error: Error) => {
           console.error('Error', error)

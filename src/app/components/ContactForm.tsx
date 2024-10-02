@@ -5,14 +5,13 @@ import { FormSubmitBtn } from "./FormSubmitBtn";
 import { useFormState } from "react-dom";
 import { EMPTY_FORM_STATE } from "../lib/formUtils";
 import { FieldError } from "./FieldError";
-import { useEffect, useState, useRef } from "react";
-import toast  from "react-hot-toast";
+import { useState } from "react";
 import { useToastMessage } from "@/hooks/useToastMessage";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input/input";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css"
-// import E164Number from "../../../node_modules/libphonenumber-js/types.d.ts"
+import { useFormReset } from "@/hooks/useFormReset";
 
 const ContactForm = () => {
   const [formState, action] = useFormState(
@@ -21,21 +20,12 @@ const ContactForm = () => {
   );
   const [phone, setPhone] = useState<string | undefined>(undefined);
   const [dueDate, setDueDate] = useState<Date | null>(new Date())
-  const formRef = useRef<HTMLFormElement>(null);
-
+  const formRef = useFormReset(formState);
   const noScriptFallback = useToastMessage(formState);
-
-  const handleSubmitForm = async (formData: FormData) => {
-    await action(formData);
-
-    if (formRef.current) {
-      formRef.current.reset();
-    }
-  }
 
   return (
     <form
-      action={handleSubmitForm}
+      action={action}
       ref={formRef}
       className="flex flex-col gap-y-2"
     >
