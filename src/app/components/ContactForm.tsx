@@ -5,7 +5,7 @@ import { FormSubmitBtn } from "./FormSubmitBtn";
 import { useFormState } from "react-dom";
 import { EMPTY_FORM_STATE } from "../lib/formUtils";
 import { FieldError } from "./FieldError";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { useToastMessage } from "@/hooks/useToastMessage";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input/input";
@@ -20,8 +20,14 @@ const ContactForm = () => {
   );
   const [phone, setPhone] = useState<string | undefined>(undefined);
   const [dueDate, setDueDate] = useState<Date | null>(new Date())
-  const formRef = useFormReset(formState);
   const noScriptFallback = useToastMessage(formState);
+
+  const handleReset = useCallback(() => {
+    setPhone(undefined);
+    setDueDate(new Date());
+  }, []);
+
+  const formRef = useFormReset(formState, handleReset);
 
   return (
     <form

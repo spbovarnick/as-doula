@@ -11,10 +11,16 @@ const sendForm = async (data: FormValues) => {
       {
         to: data.email,
         from: process.env.EMAIL,
-        subject: `Thanks for reaching out, ${data.firstName}`,
+        subject: `Confirming your request for care, ${data.firstName}`,
         html: `
         <html>
-        <p>thanks!</p>
+        <p>Hi ${data.firstName},</p>
+        <p>Thank you for reaching out about my services. This email is just a confirmation that I'll be in touch after reviewing your form.</p>
+        <br/>
+        <br/>
+        <p>Sincerely,</p>
+        <br/>
+        <p>Annie Smith</p>
         </html>
         `
       },
@@ -95,8 +101,8 @@ const sendForm = async (data: FormValues) => {
       sgMail
         .send(msgs)
         .then((response: any) => {
-          console.log(response)
-          console.log(response)
+          console.log(response[0].statusCode)
+          console.log(response[0].headers)
         })
         .catch((error: Error) => {
           console.error('Error', error)
