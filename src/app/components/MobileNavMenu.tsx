@@ -82,7 +82,7 @@ const MobileNavMenu: React.FC<NavProps> = ({ services }) => {
           </button>
             <ul className={`${servicesAreOpen ? 'max-h-96' : 'max-h-0'} ${styles.services} overflow-hidden pl-3 text-base transition-[max-height] delay-200`}>
             {services.map((service) => (
-              <Link href={`/services#${service.slug}`} key={service._id}>{service.serviceName}</Link>
+              <li key={service._id}><Link href={`/services#${service.slug}`} >{service.serviceName}</Link></li>
             ))}
           </ul>
         </li>

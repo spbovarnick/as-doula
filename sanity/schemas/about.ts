@@ -16,6 +16,9 @@ export default defineType({
       name: "headshot",
       title: "Headshot",
       type: "image",
+      options: {
+        hotspot: true,
+      },
       validation: (Rule) => Rule.required().assetRequired(),
       fields: [
         defineField({

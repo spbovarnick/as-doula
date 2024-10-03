@@ -17,13 +17,13 @@ export default async function Home() {
   })
 
   return (
-    <div className="pt-6 px-5">
+    <div >
       <div className="mb-8">
         <h1 className="font-libre_baskerville text-5xl leading-normal">Annie <br/> Scott</h1>
         <LandingHero copy={landingBlurb} />
         <div className="flex">
-          <CtaButton link={""} text={"Contact"}/>
-          <CtaButton link={""} text={"Learn More"}/>
+          <CtaButton link={"/contact"} text={"Contact"}/>
+          <CtaButton link={"/services"} text={"Learn More"}/>
         </div>
       </div>
       <TestimonialSwiper testimonials={testimonials} />
