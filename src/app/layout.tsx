@@ -47,7 +47,7 @@ export default async function RootLayout({
       <body className="font-lato ">
         <div className="relative min-h-screen">
           <Nav services={services} />
-          <div className="pb-[125px] pt-6 px-5" >
+          <div className="pb-[145px] pt-6 px-5" >
             <ToastProvider>{children}</ToastProvider>
           </div>
           <Footer />

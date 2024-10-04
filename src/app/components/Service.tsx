@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, MouseEvent } from "react";
+import React, { useState, MouseEvent, useEffect } from "react";
 import { ServicesQueryResponse } from "../lib/types";
 import { ChevronDown } from "./Icons";
 import { PortableText } from "@portabletext/react";
@@ -15,6 +15,13 @@ const ServiceSection: React.FC<ServiceProps> = ({ service }) => {
     e.preventDefault();
     setServiceIsOpen(!serviceIsOpen);
   }
+
+  console.log(service.slug?.current)
+  useEffect(() => {
+    if (window.location.hash.substring(1) === service.slug?.current) {
+      setServiceIsOpen(true)
+    }
+  },[service.slug, window.location.hash])
 
   return (
     <div className="border-2 rounded-lg p-4 mb-4">

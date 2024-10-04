@@ -17,7 +17,7 @@ export default async function Services(){
 
   return (
     <div className="">
-      <div className="pb-5 text-2xl font-libre_baskerville">Philosophy</div>
+      <div className="text-2xl font-libre_baskerville">Philosophy</div>
       <div className="font-libre_baskerville text-xs px-4 mb-4">
         <PortableText
           value={philosophy?.philosophy}
