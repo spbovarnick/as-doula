@@ -70,16 +70,16 @@ const MobileNavMenu: React.FC<NavProps> = ({ services }) => {
           <Link href={"/about"}>About</Link>
         </li>
         <li className=''>
-          <button
-            className='flex items-center'
-            onClick={servicesHandler}
-          >
             <Link href={"/services"} className='mr-4'>Services</Link>
-            <span
-              className={`${servicesAreOpen ? '' : 'orgin-center -rotate-180'} transition-transform delay-200`}
+            <button
+              className='inline-flex items-center'
+              onClick={servicesHandler}
             >
-              <ChevronDown />
-            </span>
+              <span
+                className={`${servicesAreOpen ? '' : 'orgin-center -rotate-180'} transition-transform delay-200`}
+              >
+                <ChevronDown />
+              </span>
           </button>
             <ul className={`${servicesAreOpen ? 'max-h-96' : 'max-h-0'} ${styles.services} overflow-hidden pl-3 text-base transition-[max-height] delay-200`}>
             {services.map((service) => (
