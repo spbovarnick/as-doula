@@ -16,7 +16,6 @@ const ServiceSection: React.FC<ServiceProps> = ({ service }) => {
     setServiceIsOpen(!serviceIsOpen);
   }
 
-  console.log(service.slug?.current)
   useEffect(() => {
     if (window.location.hash.substring(1) === service.slug?.current) {
       setServiceIsOpen(true)

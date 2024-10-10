@@ -1,8 +1,13 @@
 import { PortableTextBlock } from "sanity";
 
+interface Slug {
+  slug: string,
+  current: string,
+}
+
 export interface ServiceNavQueryResponse {
   serviceName?: string;
-  slug?: string;
+  slug: Slug;
   _id: string;
 }
 
