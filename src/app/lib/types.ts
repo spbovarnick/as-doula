@@ -42,6 +42,7 @@ export interface ImageObject {
 
 export interface AboutQueryResponse {
   copy: PortableTextBlock[];
+  headline: string;
   headshot: ImageObject;
 }
 

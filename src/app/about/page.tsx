@@ -12,12 +12,14 @@ export default async function About(){
     tags: ["about"]
   });
 
+  console.log(content)
 
   return (
     <>
     <div className="">
       <div className="pb-5 text-2xl font-libre_baskerville">About Annie</div>
       <div className="pb-5">
+        <h2>{content.headline}</h2>
         <PortableText value={content?.copy} />
       </div>
       { content?.headshot?.asset?.url ?
