@@ -5,7 +5,7 @@ import { aboutQuery } from "../lib/queries";
 import ClientImage from "../components/ClientImg";
 import { Portrait } from "../components/Icons";
 import { PortableText } from "@portabletext/react";
-import ContactButton from "../components/ContactButton";
+import { ContactButton } from "../components/ContactButton";
 
 export default async function About(){
   const content: AboutQueryResponse = await sanityFetch<AboutQueryResponse>({
