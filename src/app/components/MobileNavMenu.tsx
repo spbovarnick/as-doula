@@ -18,6 +18,7 @@ const MobileNavMenu: React.FC<NavProps> = ({ services }) => {
   useEffect(() => {
     if (menuRef.current) {
       menuIsOpen && setMenuIsOpen(false);
+      servicesAreOpen && setServicesAreOpen(false);
     }
   }, [pathname, searchParams]);
 
