@@ -5,6 +5,7 @@ import { aboutQuery } from "../lib/queries";
 import ClientImage from "../components/ClientImg";
 import { Portrait } from "../components/Icons";
 import { PortableText } from "@portabletext/react";
+import ContactButton from "../components/ContactButton";
 
 export default async function About(){
   const content: AboutQueryResponse = await sanityFetch<AboutQueryResponse>({
@@ -12,14 +13,12 @@ export default async function About(){
     tags: ["about"]
   });
 
-  console.log(content)
-
   return (
     <>
     <div className="">
       <div className="pb-5 text-2xl font-libre_baskerville">About Annie</div>
       <div className="pb-5">
-        <h2>{content.headline}</h2>
+        <div className="text-xl italic text-gray-500 pb-3">{content?.headline}</div>
         <PortableText value={content?.copy} />
       </div>
       { content?.headshot?.asset?.url ?
@@ -31,6 +30,7 @@ export default async function About(){
         <Portrait />
       }
     </div>
+    <ContactButton />
     </>
   )
 }
