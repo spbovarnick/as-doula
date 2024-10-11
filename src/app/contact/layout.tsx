@@ -1,3 +1,5 @@
+import "./contact.css";
+
 export default function ContactLayout({
   children,
 }: {

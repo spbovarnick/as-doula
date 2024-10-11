@@ -1,0 +1,11 @@
+input, textarea {
+  border-radius: .25rem;
+  border: 2px solid #e5e7eb;
+  padding: .375rem;
+}
+
+.fieldDiv {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}

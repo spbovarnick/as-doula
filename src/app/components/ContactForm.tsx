@@ -33,134 +33,161 @@ const ContactForm = () => {
     <form
       action={action}
       ref={formRef}
-      className="flex flex-col gap-y-2"
+      className="fieldDiv gap-y-2 text-xs"
     >
-      <label htmlFor="firstName">
-        First Name
-      </label>
-      <input
-        id="firstName"
-        name="firstName"
-        className="border-2"
-        required
-      />
-      <FieldError formState={formState} name="firstName" />
 
-      <label htmlFor="lastName">
-        Last Name
-      </label>
-      <input
-        id="lastName"
-        name="lastName"
-        className="border-2"
-        required
-      />
-      <FieldError formState={formState} name="lastName" />
-
-      <label htmlFor="email">
-        Email
-      </label>
-      <input
-        id="email"
-        name="email"
-        className="border-2"
-        type="email"
-        required
-      />
-      <FieldError formState={formState} name="email" />
-
-      <label htmlFor="phoneNumber">
-        Phone Number
-      </label>
-      <PhoneInput
-        placeholder="Enter phone number"
-        value={phone}
-        onChange={setPhone}
-        country="US"
-        defaultCountry="US"
-        maxLength={14}
-        id="phoneNumber"
-        name="phoneNumber"
-        className="border-2"
-      />
-      <FieldError formState={formState} name="phoneNumber" />
-
-      <label htmlFor="dueDate">
-        Estimated Due Date
-      </label>
-      <DatePicker
-        showIcon
-        selected={dueDate}
-        onChange={(date) => setDueDate(date)}
-        id="dueDate"
-        name="dueDate"
-        closeOnScroll={true}
-        minDate={new Date()}
-        className="border-2"
-        dateFormat={"yyyy-MM-dd"}
-      />
-      <FieldError formState={formState} name="dueDate" />
-
-      <label htmlFor="zipCode">
-        Zip Code
-      </label>
-      <input
-        id="zipCode"
-        name="zipCode"
-        className="border-2"
-        minLength={5}
-        maxLength={5}
-        pattern="\d*"
-        required
-      />
-      <FieldError formState={formState} name="zipCode" />
-      <span className="text-xs text-red-400">
-        {formState.fieldErrors['zipCode']?.[0]}
-      </span>
-
-      <label htmlFor="location">
-        Birthing Location
-      </label>
-      <input
-        id="location"
-        name="location"
-        className="border-2"
-      />
-
-      <fieldset>
-        <legend>What services are you interested in?</legend>
+      <div className="fieldDiv">
+        <label htmlFor="firstName" className="w-full">
+          First Name
+        </label>
         <input
-          type="checkbox"
-          id="birthDoula"
-          name="birthDoula"
+          id="firstName"
+          name="firstName"
+          className="w-3/4"
+          required
         />
-        <label htmlFor="birthDoula">Birth Doula</label>
+        <FieldError formState={formState} name="firstName" />
+      </div>
 
+      <div className="fieldDiv">
+        <label htmlFor="lastName" className="w-full">
+          Last Name
+        </label>
         <input
-          type="checkbox"
-          id="postpartumDoula"
-          name="postpartumDoula"
+          id="lastName"
+          name="lastName"
+          className="w-3/4"
+          required
         />
-        <label htmlFor="postpartumDoula">Postpartum Doula</label>
+        <FieldError formState={formState} name="lastName" />
+      </div>
 
+      <div className="fieldDiv">
+        <label htmlFor="email" className="w-full">
+          Email
+        </label>
         <input
-          type="checkbox"
-          id="siblingSupport"
-          name="siblingSupport"
+          id="email"
+          name="email"
+          className="w-3/4"
+          type="email"
+          required
         />
-        <label htmlFor="siblingSupport">Sibling Support</label>
+        <FieldError formState={formState} name="email" />
+      </div>
+
+      <div className="fieldDiv">
+        <label htmlFor="phoneNumber" className="w-full">
+          Phone Number
+        </label>
+        <PhoneInput
+          placeholder="Enter phone number"
+          value={phone}
+          onChange={setPhone}
+          country="US"
+          defaultCountry="US"
+          maxLength={14}
+          id="phoneNumber"
+          name="phoneNumber"
+          className="w-[18ch]"
+        />
+        <FieldError formState={formState} name="phoneNumber" />
+      </div>
+
+      <div className="fieldDiv">
+        <label htmlFor="dueDate">
+          Estimated Due Date
+        </label>
+        <DatePicker
+          showIcon
+          selected={dueDate}
+          onChange={(date) => setDueDate(date)}
+          id="dueDate"
+          name="dueDate"
+          closeOnScroll={true}
+          minDate={new Date()}
+          className="w-[16ch]"
+          dateFormat={"yyyy-MM-dd"}
+        />
+        <FieldError formState={formState} name="dueDate" />
+      </div>
+
+      <div className="fieldDiv">
+        <label htmlFor="zipCode">
+          Zip Code
+        </label>
+        <input
+          id="zipCode"
+          name="zipCode"
+          className="w-[10ch]"
+          minLength={5}
+          maxLength={5}
+          pattern="\d*"
+          required
+        />
+        <FieldError formState={formState} name="zipCode" />
+        <span className="text-xs text-red-400">
+          {formState.fieldErrors['zipCode']?.[0]}
+        </span>
+      </div>
+
+      <div className="fieldDiv">
+        <label htmlFor="location" className="flex justify-between w-3/4">
+          <span>Birthing Location</span> <span>(optional)</span>
+        </label>
+        <input
+          id="location"
+          name="location"
+          className="w-3/4"
+        />
+      </div>
+
+      <fieldset className="fieldDiv p-0 gap-y-2 my-3">
+        <legend className="pb-2">What services are you interested in?</legend>
+        <div>
+          <input
+            type="checkbox"
+            id="birthDoula"
+            name="birthDoula"
+            className="mr-1"
+          />
+          <label htmlFor="birthDoula">Birth Doula</label>
+        </div>
+        <div>
+          <input
+            type="checkbox"
+            id="postpartumDoula"
+            name="postpartumDoula"
+            className="mr-1"
+          />
+          <label htmlFor="postpartumDoula">Postpartum Doula</label>
+        </div>
+        <div>
+          <input
+            type="checkbox"
+            id="siblingSupport"
+            name="siblingSupport"
+            className="mr-1"
+          />
+          <label htmlFor="siblingSupport">Sibling Support</label>
+        </div>
       </fieldset>
 
-      <label htmlFor="addDetails">Please share any additional details that may be helpful:</label>
-      <textarea
-        id="addDetails"
-        name="addDetails"
-      />
+      <div className="fieldDiv">
+        <label htmlFor="addDetails">Please share any additional details that may be helpful:</label>
+        <textarea
+          id="addDetails"
+          name="addDetails"
+          className=""
+        />
+      </div>
 
-      <FormSubmitBtn
-        label="Submit"
-        loading="Submitting..."
-      />
+      <div className="w-full flex justify-center">
+        <FormSubmitBtn
+          label="Submit"
+          loading="Submitting..."
+        />
+      </div>
 
       <span className="font-bold">
         {formState.message}
