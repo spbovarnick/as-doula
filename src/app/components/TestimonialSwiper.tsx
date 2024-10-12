@@ -1,11 +1,13 @@
 "use client"
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
+import { Navigation, Pagination } from "swiper/modules";
 import 'swiper/css';
-import "swiper/css/pagination"
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 import { TestimonialQueryResponse } from "../lib/types";
 import "../styles/swiper.css";
+
 
 interface TestimonialSwiperProps {
   testimonials: TestimonialQueryResponse[],
@@ -18,7 +20,8 @@ const TestimonialSwiper: React.FC<TestimonialSwiperProps>  = ({ testimonials }) 
       <Swiper
         slidesPerView={1.5}
         spaceBetween={12}
-        modules={[Pagination]}
+        modules={[Pagination, Navigation]}
+        navigation={true}
         pagination={{
           dynamicBullets: true,
           clickable: true,

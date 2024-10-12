@@ -34,3 +34,9 @@
   position: relative;
   margin-top: 12px;
 }
+
+@media (max-width: 640px) {
+  .swiper-button-next, .swiper-button-prev {
+    display: none;
+  }
+}
