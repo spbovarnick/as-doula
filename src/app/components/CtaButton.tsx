@@ -12,7 +12,7 @@ const CtaButton: React.FC<CtaHref> = ({ link, text }) => {
   return (
     <Link
       href={link}
-      className={`${styles.ctaButton} bg-dogwood/40 py-4 px-5 rounded-full max-w-fit mx-2 hover:bg-dogwood/100 active:bg-dogwood/100 transition-colors duration-200`}
+      className={`${styles.ctaButton} p-4 border bg-[#E1F0C4] rounded-tr-lg rounded-br-3xl rounded-bl-lg rounded-tl-3xl max-w-fit mx-2 hover:bg-[#6BAB90] transition-colors duration-200`}
     >
       {text}
     </Link>

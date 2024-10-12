@@ -3,7 +3,7 @@ import { sanityFetch } from "../lib/sanityFetch"
 import { philosophyQuery, servicesQuery } from "../lib/queries";
 import { PortableText } from "@portabletext/react";
 import ServiceSection from "../components/Service";
-import { ContactButton } from "../components/ContactButton";
+import CtaButton from "../components/CtaButton";
 
 export default async function Services(){
   const services: ServicesQueryResponse[] = await sanityFetch<ServicesQueryResponse[]>({
@@ -28,7 +28,7 @@ export default async function Services(){
         <ServiceSection key={service._id} service={service} />
       ))}
       <div className="flex justify-center pb-5">
-        <ContactButton />
+        <CtaButton link="/contact" text="Contact" />
       </div>
     </div>
   )

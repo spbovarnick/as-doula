@@ -5,12 +5,13 @@ import { PortableText } from "@portabletext/react";
 
 type LandingHeroProps = {
   copy: LandingBlurbQueryResponse,
+  classNames?: string,
 }
 
-const LandingHero: React.FC<LandingHeroProps> = ({ copy }) => {
+const LandingHero: React.FC<LandingHeroProps> = ({ copy, classNames }) => {
 
   return (
-    <div className="mb-16">
+    <div className={`${classNames} mb-8 w-full`}>
       <PortableText value={copy?.copy}  />
     </div>
   )

@@ -6,6 +6,7 @@ import ClientImage from "../components/ClientImg";
 import { Portrait } from "../components/Icons";
 import { PortableText } from "@portabletext/react";
 import { ContactButton } from "../components/ContactButton";
+import CtaButton from "../components/CtaButton";
 
 export default async function About(){
   const content: AboutQueryResponse = await sanityFetch<AboutQueryResponse>({
@@ -31,7 +32,7 @@ export default async function About(){
       }
     </div>
     <div className="w-full flex justify-center p-5">
-      <ContactButton />
+      <CtaButton link="/contact" text="Contact" />
     </div>
     </>
   )
