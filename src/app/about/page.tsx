@@ -5,7 +5,6 @@ import { aboutQuery } from "../lib/queries";
 import ClientImage from "../components/ClientImg";
 import { Portrait } from "../components/Icons";
 import { PortableText } from "@portabletext/react";
-import { ContactButton } from "../components/ContactButton";
 import CtaButton from "../components/CtaButton";
 
 export default async function About(){
