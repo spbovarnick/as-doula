@@ -17,6 +17,8 @@ export interface ServicesQueryResponse extends ServiceNavQueryResponse {
 
 export interface LandingBlurbQueryResponse {
   copy: PortableTextBlock[],
+  headshot: ImageObject,
+  headline: string,
 }
 
 export interface TestimonialQueryResponse {
