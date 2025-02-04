@@ -22,12 +22,12 @@ export default async function Home() {
   return (
     <div >
 
-      <div className="mb-5 sm:grid sm:grid-cols-3 sm:relative sm:gap-x-4">
+      <div className="mb-5 sm:grid sm:grid-cols-3 sm:relative sm:gap-x-4 sm:mb-8">
         <div className="mb-8 sm:flex sm:flex-col sm:justify-center sm:col-span-1 ">
           {/* <div className="sm:relative"> */}
             <ClientImage
               img={landingBlurb.headshot}
-              classes={`hidden sm:block ${landing.image}`}
+            classes={`hidden sm:block ${landing.image} rounded-tr-lg rounded-br-3xl rounded-bl-lg rounded-tl-3xl`}
               sizes={"(max-width: 1024px) 100vw, 50vw"}
 
             />
@@ -45,7 +45,7 @@ export default async function Home() {
             copy={landingBlurb}
             classNames="sm:pt-5"
           />
-          <div className="flex w-full justify-center mb-8 sm:absolute sm:bottom-0">
+          <div className="flex w-full justify-center mb-8 sm:mb-0 sm:absolute sm:bottom-0">
             <CtaButton link={"/contact"} text={"Contact"}/>
             <CtaButton link={"/services"} text={"Learn More"}/>
           </div>

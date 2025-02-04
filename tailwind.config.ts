@@ -21,6 +21,8 @@ const config: Config = {
         "mossGreen": "#768948",
         "fernGreen": "#607744",
         "hunterGreen": "#34623F",
+        "egshellOne": "#FFFBF0",
+        "eggshellTwo": "#F0EAD6",
       }
     },
   },

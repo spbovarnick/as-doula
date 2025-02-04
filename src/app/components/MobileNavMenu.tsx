@@ -47,52 +47,52 @@ const MobileNavMenu: React.FC<NavProps> = ({ services }) => {
   }
 
   return (
-    <>
-    <button
-      className='absolute top-8 right-6 -translate-y-2/4'
-      onClick={menuHandler}
-      ref={buttonRef}
-    >
-      <div className={`${menuIsOpen ? '' : 'hidden'} animate__animated animate__fadeIn`}>
-        <Cross />
-      </div>
-      <div className={`${menuIsOpen ? `hidden` : ``} animate__animated animate__fadeIn`}>
-        <Hamburger />
-      </div>
-    </button>
-    <div
-      id='slideInMenu'
-      className={`${styles.mobileMenu} ${menuIsOpen ? `open ${styles.open}` : `closed ${styles.closed}`} w-9/12 h-9/12 bg-blueOne absolute top-full right-0 pt-0 pr-0 pl-4 pb-3 text-lg rounded-bl-lg`}
-      ref={menuRef}
-    >
-      <ul>
-        <li>
-          <Link href={"/about"}>About</Link>
-        </li>
-        <li className=''>
-            <Link href={"/services"} className='mr-4'>Services</Link>
-            <button
-              className='inline-flex items-center'
-              onClick={servicesHandler}
-            >
-              <span
-                className={`${servicesAreOpen ? '' : 'orgin-center -rotate-180'} transition-transform delay-200`}
+    <div className='sm:hidden'>
+      <button
+        className='absolute top-8 right-6 -translate-y-2/4'
+        onClick={menuHandler}
+        ref={buttonRef}
+      >
+        <div className={`${menuIsOpen ? '' : 'hidden'} animate__animated animate__fadeIn`}>
+          <Cross />
+        </div>
+        <div className={`${menuIsOpen ? `hidden` : ``} animate__animated animate__fadeIn`}>
+          <Hamburger />
+        </div>
+      </button>
+      <div
+        id='slideInMenu'
+        className={`${styles.mobileMenu} ${menuIsOpen ? `open ${styles.open}` : `closed ${styles.closed}`} w-9/12 h-9/12 bg-blueOne absolute top-full right-0 pt-0 pr-0 pl-4 pb-3 text-lg rounded-bl-lg`}
+        ref={menuRef}
+      >
+        <ul>
+          <li>
+            <Link href={"/about"}>About</Link>
+          </li>
+          <li className=''>
+              <Link href={"/services"} className='mr-4'>Services</Link>
+              <button
+                className='inline-flex items-center'
+                onClick={servicesHandler}
               >
-                <ChevronDown />
-              </span>
-          </button>
-            <ul className={`${servicesAreOpen ? 'max-h-96' : 'max-h-0'} ${styles.services} overflow-hidden pl-3 text-base transition-[max-height] delay-200`}>
-            {services.map((service) => (
-              <li key={service._id}><Link href={`/services#${service.slug}`} >{service.serviceName}</Link></li>
-            ))}
-          </ul>
-        </li>
-        <li>
-          <Link href={"/contact"}>Contact</Link>
-        </li>
-      </ul>
+                <span
+                  className={`${servicesAreOpen ? '' : 'orgin-center -rotate-180'} transition-transform delay-200`}
+                >
+                  <ChevronDown />
+                </span>
+              </button>
+              <ul className={`${servicesAreOpen ? 'max-h-96' : 'max-h-0'} ${styles.services} overflow-hidden pl-3 text-base transition-[max-height] delay-200`}>
+              {services.map((service) => (
+                <li key={service._id}><Link href={`/services#${service.slug}`} >{service.serviceName}</Link></li>
+              ))}
+            </ul>
+          </li>
+          <li>
+            <Link href={"/contact"}>Contact</Link>
+          </li>
+        </ul>
+      </div>
     </div>
-    </>
   );
 }
 

@@ -1,15 +1,3 @@
-// type ResponseData = {
-//   message: string
-// }
-
-// export async function GET() {
-//   const res = await
-//   console.log('Data', req.body)
-
-//   res.status(200).json({ message: 'Hello from Next.js!' })
-// }
-
-
 import { NextApiRequest, NextApiResponse } from "next";
 import nodemailer from "nodemailer";
 
