@@ -15,7 +15,7 @@ export default function ToastProvider({
       <Toaster
         containerClassName="poop"
         containerStyle={{
-          position: "absolute"
+          position: "absolute",
         }} />
     </>
   )

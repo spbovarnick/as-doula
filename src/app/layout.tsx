@@ -46,7 +46,7 @@ export default async function RootLayout({
   return (
     <html lang="en" className={`${inter.className} ${libre_baskerville.variable} ${lato.variable}`}>
       <body className="font-lato ">
-        <div className="relative min-h-screen">
+        <div className="relative min-h-screen overflow-x-hidden">
           <Nav services={services} />
           <div className="pb-[145px] pt-6 px-5 sm:pt-10 sm:px-[12.5vw] bg-eggshellOne">
             <ToastProvider>{children}</ToastProvider>
