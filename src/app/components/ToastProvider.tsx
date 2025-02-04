@@ -16,6 +16,7 @@ export default function ToastProvider({
         containerClassName="poop"
         containerStyle={{
           position: "absolute",
+          height: "fit-content"
         }} />
     </>
   )
