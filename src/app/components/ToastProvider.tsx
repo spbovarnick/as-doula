@@ -12,7 +12,11 @@ export default function ToastProvider({
   return (
     <>
       {children}
-      <Toaster />
+      <Toaster
+        containerClassName="poop"
+        containerStyle={{
+          position: "absolute"
+        }} />
     </>
   )
 }

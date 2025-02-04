@@ -1,4 +1,5 @@
-import "server-only"
+"server-only";
+import { Toaster } from "react-hot-toast";
 import type { Metadata } from "next";
 import { Inter, Libre_Baskerville, Lato } from "next/font/google";
 import "./globals.css";
