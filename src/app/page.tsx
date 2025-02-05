@@ -25,12 +25,12 @@ export default async function Home() {
       <div className="mb-5 sm:grid sm:grid-cols-3 sm:relative sm:gap-x-4 sm:mb-8">
         <div className="mb-8 sm:flex sm:flex-col sm:justify-center sm:col-span-1 ">
           {/* <div className="sm:relative"> */}
-            <ClientImage
-              img={landingBlurb.headshot}
+          {landingBlurb.headshot &&  <ClientImage
+              img={landingBlurb?.headshot}
             classes={`hidden sm:block ${landing.image} rounded-tr-lg rounded-br-3xl rounded-bl-lg rounded-tl-3xl`}
               sizes={"(max-width: 1024px) 100vw, 50vw"}
 
-            />
+            />}
             <div className="sm:absolute sm:bottom-0 sm:left-16">
               <div className="font-libre_baskerville text-5xl leading-normal w-fit">Annie Scott, </div>
               <div className="italic text-4xl w-fit">Full Spectrum Doula</div>
