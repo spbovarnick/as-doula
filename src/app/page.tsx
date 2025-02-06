@@ -6,6 +6,7 @@ import CtaButton from "./components/CtaButton";
 import TestimonialSwiper from "./components/TestimonialSwiper";
 import ClientImage from "./components/ClientImg";
 import landing from './landing.module.css';
+import { Suspense } from "react";
 
 
 export default async function Home() {
@@ -20,10 +21,11 @@ export default async function Home() {
   })
 
   // console.log(landingBlurb.headshot._type)
-  if (landingBlurb && testimonials) {
+
   return (
     <div >
       <div className="mb-5 sm:grid sm:grid-cols-3 sm:relative sm:gap-x-4 sm:mb-8">
+        <Suspense>
         <div className="mb-8 sm:flex sm:flex-col sm:justify-center sm:col-span-1 ">
           {/* {landingBlurb.headshot && */}
             <ClientImage
@@ -51,9 +53,11 @@ export default async function Home() {
             <CtaButton link={"/services"} text={"Learn More"}/>
           </div>
         </div>
+        </Suspense>
       </div>
+
 
       <TestimonialSwiper testimonials={testimonials} />
     </div>
-  );}
+  );
 }
