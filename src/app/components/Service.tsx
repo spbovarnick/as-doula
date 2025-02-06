@@ -20,7 +20,7 @@ const ServiceSection: React.FC<ServiceProps> = ({ service }) => {
     if (window.location.hash.substring(1) === service.slug?.current) {
       setServiceIsOpen(true)
     }
-  },[service.slug, window.location.hash])
+  },[service.slug])
 
   return (
     <div className="border-2 rounded-lg p-4 mb-4">
