@@ -1,5 +1,4 @@
 "server-only";
-import { Toaster } from "react-hot-toast";
 import type { Metadata } from "next";
 import { Inter, Libre_Baskerville, Lato } from "next/font/google";
 import "./globals.css";
@@ -48,7 +47,7 @@ export default async function RootLayout({
       <body className="font-lato ">
         <div className="relative min-h-screen overflow-x-hidden">
           <Nav services={services} />
-          <div className="pb-[145px] pt-6 px-5 sm:pt-10 sm:px-[12.5vw] bg-eggshellOne">
+          <div className="pb-12 pt-6 px-5 sm:pt-10 sm:px-[12.5vw] bg-eggshellOne">
             <ToastProvider>{children}</ToastProvider>
           </div>
           <Footer />

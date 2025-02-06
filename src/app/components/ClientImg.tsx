@@ -7,6 +7,7 @@ import { urlForImage } from "../../../sanity/lib/image";
 import { SanityImageObject } from '@sanity/image-url/lib/types/types';
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import Image, { ImageProps } from "next/image";
+import { Suspense } from 'react';
 
 type Props = Omit<ImageProps, "src"> & {
   src: SanityImageSource;
@@ -22,6 +23,7 @@ export default function ClientImage({ img, sizes, classes }: ClientImageProps) {
   const imageProps = useNextSanityImage(client, img)
 
   return (
+    <Suspense>
     <Image
       {...imageProps}
       alt={img.alt}
@@ -29,5 +31,6 @@ export default function ClientImage({ img, sizes, classes }: ClientImageProps) {
       className={classes}
       quality={100}
     />
+    </Suspense>
   )
 }
