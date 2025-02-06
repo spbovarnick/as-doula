@@ -8,7 +8,6 @@ import ClientImage from "./components/ClientImg";
 import landing from './landing.module.css';
 import PortraitPlaceholder from "./components/PortraitPlaceholder";
 
-
 export default async function Home() {
   const landingBlurb: LandingBlurbQueryResponse = await sanityFetch<LandingBlurbQueryResponse>({
     query: landingBlurbQuery,
@@ -19,8 +18,6 @@ export default async function Home() {
     query: testimonialQuery,
     tags: ["testimonial"],
   })
-
-  // console.log(landingBlurb.headshot._type)
 
   return (
     <div >
@@ -35,10 +32,10 @@ export default async function Home() {
             /> :
             <PortraitPlaceholder />
           }
-            <div className="sm:absolute sm:bottom-0 sm:left-16">
-              <div className="font-libre_baskerville text-5xl leading-normal w-fit">Annie Scott, </div>
-              <div className="italic text-4xl w-fit">Full Spectrum Doula</div>
-            </div>
+          <div className="sm:absolute sm:bottom-0 sm:left-16">
+            <div className={`font-libre_baskerville text-5xl leading-normal w-fit ${!landingBlurb?.headshot && 'bg-white'}`}>Annie Scott, </div>
+            <div className="italic text-4xl w-fit">Full Spectrum Doula</div>
+          </div>
         </div>
         <div className="sm:col-span-2 sm:relative sm:px-8">
           <div className="text-3xl italic font-libre_baskerville">
