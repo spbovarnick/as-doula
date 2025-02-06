@@ -6,7 +6,7 @@ import {
 
 import { client } from '../../../sanity/lib/client';
 
-export function sanityFetch<QueryResponse>({
+export async function sanityFetch<QueryResponse>({
   query,
   qParams,
   tags,

@@ -6,7 +6,7 @@ import CtaButton from "./components/CtaButton";
 import TestimonialSwiper from "./components/TestimonialSwiper";
 import ClientImage from "./components/ClientImg";
 import landing from './landing.module.css';
-import { Suspense } from "react";
+import PortraitPlaceholder from "./components/PortraitPlaceholder";
 
 
 export default async function Home() {
@@ -25,16 +25,16 @@ export default async function Home() {
   return (
     <div >
       <div className="mb-5 sm:grid sm:grid-cols-3 sm:relative sm:gap-x-4 sm:mb-8">
-        <Suspense>
         <div className="mb-8 sm:flex sm:flex-col sm:justify-center sm:col-span-1 ">
-          {/* {landingBlurb.headshot && */}
+          {landingBlurb?.headshot ?
             <ClientImage
             img={landingBlurb?.headshot}
             classes={`hidden sm:block ${landing.image} rounded-tr-lg rounded-br-3xl rounded-bl-lg rounded-tl-3xl`}
             sizes={"(max-width: 1024px) 100vw, 50vw"}
 
-            />
-          {/* } */}
+            /> :
+            <PortraitPlaceholder />
+          }
             <div className="sm:absolute sm:bottom-0 sm:left-16">
               <div className="font-libre_baskerville text-5xl leading-normal w-fit">Annie Scott, </div>
               <div className="italic text-4xl w-fit">Full Spectrum Doula</div>
@@ -42,22 +42,24 @@ export default async function Home() {
         </div>
         <div className="sm:col-span-2 sm:relative sm:px-8">
           <div className="text-3xl italic font-libre_baskerville">
-            {landingBlurb.headline}
+            {landingBlurb?.headline ? landingBlurb.headline : 'Welcome'}
           </div>
-          <LandingHero
-            copy={landingBlurb}
-            classNames="sm:pt-5"
-          />
+          {landingBlurb?.copy &&
+            <LandingHero
+              copy={landingBlurb}
+              classNames="sm:pt-5"
+            />
+          }
           <div className="flex w-full justify-center mb-8 sm:mb-0 sm:absolute sm:bottom-0">
             <CtaButton link={"/contact"} text={"Contact"}/>
             <CtaButton link={"/services"} text={"Learn More"}/>
           </div>
         </div>
-        </Suspense>
       </div>
 
-
-      <TestimonialSwiper testimonials={testimonials} />
+      {testimonials &&
+        <TestimonialSwiper testimonials={testimonials} />
+      }
     </div>
   );
 }
