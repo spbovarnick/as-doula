@@ -1,3 +1,4 @@
+"use server"
 import { sanityFetch } from "./lib/sanityFetch";
 import { LandingBlurbQueryResponse, TestimonialQueryResponse } from "./lib/types";
 import { landingBlurbQuery, testimonialQuery } from "./lib/queries";
