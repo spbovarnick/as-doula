@@ -20,11 +20,7 @@ export default async function Home() {
   })
 
   // console.log(landingBlurb.headshot._type)
-
-  if (!landingBlurb || !testimonialQuery) {
-    return null
-  }
-
+  if (landingBlurb && testimonials) {
   return (
     <div >
       <div className="mb-5 sm:grid sm:grid-cols-3 sm:relative sm:gap-x-4 sm:mb-8">
@@ -59,5 +55,5 @@ export default async function Home() {
 
       <TestimonialSwiper testimonials={testimonials} />
     </div>
-  );
+  );}
 }
