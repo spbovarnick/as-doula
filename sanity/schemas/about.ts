@@ -25,7 +25,7 @@ export default defineType({
       options: {
         hotspot: true,
       },
-      validation: (Rule) => Rule.required().assetRequired(),
+      validation: (rule) => rule.required().assetRequired(),
       fields: [
         defineField({
           name: "alt",
