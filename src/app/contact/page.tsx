@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { ContactForm } from "../components/ContactForm"
+import { libre_baskerville } from "../fonts"
 
 export default function Contact() {
   return (
@@ -12,7 +13,7 @@ export default function Contact() {
         className="h-full"
       />
       <div>
-        <div className="font-libre_baskerville text-2xl mb-5">
+        <div className={`${libre_baskerville.className} text-2xl mb-5`}>
           Contact
         </div>
         <ContactForm></ContactForm>

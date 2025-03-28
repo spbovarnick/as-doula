@@ -4,6 +4,7 @@ import { philosophyQuery, servicesQuery } from "../lib/queries";
 import { PortableText } from "@portabletext/react";
 import ServiceSection from "../components/Service";
 import CtaButton from "../components/CtaButton";
+import { libre_baskerville } from "../fonts";
 
 export default async function Services(){
   const services: ServicesQueryResponse[] = await sanityFetch<ServicesQueryResponse[]>({
@@ -18,8 +19,8 @@ export default async function Services(){
 
   return (
     <div className="">
-      <div className="text-2xl font-libre_baskerville pb-5">Philosophy</div>
-      <div className="font-libre_baskerville text-xs mb-5">
+      <div className={`text-2xl ${libre_baskerville.className} pb-5`}>Philosophy</div>
+      <div className={`${libre_baskerville.className} text-xs mb-5`}>
         <PortableText
           value={philosophy?.philosophy}
         />

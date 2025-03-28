@@ -3,6 +3,7 @@ import React, { useState, MouseEvent, useEffect } from "react";
 import { ServicesQueryResponse } from "../lib/types";
 import { ChevronDown } from "./Icons";
 import { PortableText } from "@portabletext/react";
+import { libre_baskerville } from "../fonts";
 
 interface ServiceProps {
   service: ServicesQueryResponse
@@ -29,7 +30,7 @@ const ServiceSection: React.FC<ServiceProps> = ({ service }) => {
         onClick={serviceHandler}
       >
         <div
-          className="text-xl font-libre_baskerville mb-2"
+          className={`text-xl mb-2 ${libre_baskerville.className}`}
         >
           {service?.serviceName}
         </div>

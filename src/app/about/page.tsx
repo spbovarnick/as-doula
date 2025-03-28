@@ -6,6 +6,7 @@ import ClientImage from "../components/ClientImg";
 import { Portrait } from "../components/Icons";
 import { PortableText } from "@portabletext/react";
 import CtaButton from "../components/CtaButton";
+import { libre_baskerville } from "../fonts";
 
 export default async function About(){
   const content: AboutQueryResponse = await sanityFetch<AboutQueryResponse>({
@@ -15,7 +16,7 @@ export default async function About(){
 
   return (
     <>
-    <div className="pb-5 text-2xl font-libre_baskerville text-center">About Annie</div>
+    <div className={`pb-5 text-2xl ${libre_baskerville.className} text-center`}>About Annie</div>
     <div className="grid grid-cols-2 gap-4">
       { content?.headshot?.asset?.url ?
         <ClientImage
@@ -26,7 +27,7 @@ export default async function About(){
         <Portrait />
       }
       <div className="pb-5">
-          <div className="text-xl italic text-gray-500 pb-3 font-libre_baskerville">{content?.headline}</div>
+          <div className={`text-xl italic text-gray-500 pb-3 ${libre_baskerville.className}`}>{content?.headline}</div>
         <PortableText value={content?.copy} />
       </div>
     </div>
