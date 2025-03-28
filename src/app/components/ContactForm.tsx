@@ -33,7 +33,7 @@ const ContactForm = () => {
     <form
       action={action}
       ref={formRef}
-      className="fieldDiv gap-y-2 text-xs"
+      className="gap-y-2 text-xs"
     >
 
       <div className="fieldDiv">
@@ -43,7 +43,7 @@ const ContactForm = () => {
         <input
           id="firstName"
           name="firstName"
-          className="w-3/4"
+          className="w-full"
           required
         />
         <FieldError formState={formState} name="firstName" />
@@ -56,7 +56,7 @@ const ContactForm = () => {
         <input
           id="lastName"
           name="lastName"
-          className="w-3/4"
+          className="w-full"
           required
         />
         <FieldError formState={formState} name="lastName" />
@@ -69,7 +69,7 @@ const ContactForm = () => {
         <input
           id="email"
           name="email"
-          className="w-3/4"
+          className="w-full"
           type="email"
           required
         />
@@ -132,17 +132,17 @@ const ContactForm = () => {
       </div>
 
       <div className="fieldDiv">
-        <label htmlFor="location" className="flex justify-between w-3/4">
+        <label htmlFor="location" className="flex justify-between w-full">
           <span>Birthing Location</span> <span>(optional)</span>
         </label>
         <input
           id="location"
           name="location"
-          className="w-3/4"
+          className="w-full"
         />
       </div>
 
-      <fieldset className="fieldDiv p-0 gap-y-2 my-3">
+      <fieldset className="fieldDiv p-0 gap-y-2">
         <legend className="pb-2">What services are you interested in?</legend>
         <div>
           <input

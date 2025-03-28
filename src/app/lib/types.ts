@@ -1,4 +1,4 @@
-import { PortableTextBlock } from "sanity";
+import { ImageCrop, ImageHotspot, PortableTextBlock } from "sanity";
 
 interface Slug {
   slug: string,
@@ -43,6 +43,8 @@ export interface ImageObject {
     _rev: string;
     url: string;
   };
+  hotspot: ImageHotspot;
+  crop: ImageCrop;
   _type: "image";
   alt: string;
 }

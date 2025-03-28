@@ -15,10 +15,9 @@ export const aboutQuery = groq`*[_type == "about"][0]{
   ...,
   headshot{
     alt,
-    asset -> {
-      ...,
-      metadata
-    }
+    asset ->,
+    hotspot,
+    crop
   }
 }`
 
