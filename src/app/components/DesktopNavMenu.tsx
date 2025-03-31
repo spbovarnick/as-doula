@@ -8,10 +8,10 @@ const DesktopNavMenu: React.FC<NavProps> = ({ services }) => {
 
   return (
     <div className='hidden sm:flex mr-40 w-[45%] justify-between'>
-      <Link href="/about" >About</Link>
+      <Link href="/about" className="nav-hover" >About</Link>
       <div className="flex flex-col relative">
         <div className={`flex items-center services`}>
-          <Link href={"/services"} className=''>Services</Link>
+          <Link href={"/services"} className="nav-hover">Services</Link>
           <ChevronDown />
         </div>
         <ul
@@ -19,17 +19,14 @@ const DesktopNavMenu: React.FC<NavProps> = ({ services }) => {
         >
           {services.map((service) => (
             <li key={service._id}>
-              <Link href={`/services#${service.slug}`}>
+              <Link href={`/services#${service.slug}`} className="nav-hover">
                 {service.serviceName}
               </Link>
             </li>
           ))}
-          <li>1</li>
-          <li>2</li>
-          <li>3</li>
         </ul>
       </div>
-      <Link href="/contact">Contact</Link>
+      <Link href="/contact" className="nav-hover">Contact</Link>
     </div>
   )
 };

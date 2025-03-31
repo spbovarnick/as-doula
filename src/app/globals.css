@@ -381,3 +381,11 @@ template {
 [hidden] {
   display: none;
 }
+
+.nav-hover:hover, .footer-hover:hover {
+  color: #d4d4d8;
+}
+
+.nav-hover, .footer-hover {
+  transition: color 300ms ease-in-out;
+}

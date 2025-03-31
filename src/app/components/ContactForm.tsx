@@ -43,7 +43,7 @@ const ContactForm = () => {
         <input
           id="firstName"
           name="firstName"
-          className="w-full"
+          className="w-[60%] md:w-full"
           required
         />
         <FieldError formState={formState} name="firstName" />
@@ -56,7 +56,7 @@ const ContactForm = () => {
         <input
           id="lastName"
           name="lastName"
-          className="w-full"
+          className="w-[60%] md:w-full"
           required
         />
         <FieldError formState={formState} name="lastName" />
