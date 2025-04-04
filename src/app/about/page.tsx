@@ -26,13 +26,17 @@ export default async function About(){
         /> :
         <Portrait />
       }
-      <div className="pb-5">
-          <div className={`text-xl italic text-gray-500 pb-3 ${libre_baskerville.className}`}>{content?.headline}</div>
-        <PortableText value={content?.copy} />
+      <div className="pb-5 flex flex-col justify-around">
+        <div>
+          <div className={`text-xl italic text-gray-500 pb-3 ${libre_baskerville.className}`}>
+            {content?.headline}
+          </div>
+          <PortableText value={content?.copy} />
+        </div>
+        <div className="w-full flex justify-center p-5">
+          <CtaButton link="/contact" text="Contact" />
+        </div>
       </div>
-    </div>
-    <div className="w-full flex justify-center p-5">
-      <CtaButton link="/contact" text="Contact" />
     </div>
     </>
   )

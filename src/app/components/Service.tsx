@@ -39,7 +39,7 @@ const ServiceSection: React.FC<ServiceProps> = ({ service }) => {
         </span>
       </button>
       <div
-        className={`${serviceIsOpen ? 'max-h-96' : 'max-h-0'} overflow-hidden transition-[max-height] delay-200 text-xs`}
+        className={`${serviceIsOpen ? 'max-h-96' : 'max-h-0'} overflow-hidden transition-[max-height] delay-200 text-xs md:text-base`}
       >
         <PortableText value={service?.description}/>
       </div>

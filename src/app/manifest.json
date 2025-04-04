@@ -1,0 +1,11 @@
+{
+  "name": "Annie Scott Doula",
+  "short_name": "Annie Scott",
+  "description": "Annie Scott is a Portland-based doula whose practice centers on the idea that families and birthing people know best what they need to have a healthy, empowering birth experience.",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/favicon.ico"
+    }
+  ]
+}
