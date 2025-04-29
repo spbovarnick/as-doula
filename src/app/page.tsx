@@ -55,7 +55,7 @@ export default async function Home() {
         </div>
       </div>
 
-      {testimonials &&
+      {testimonials.length > 0 &&
         <TestimonialSwiper testimonials={testimonials} />
       }
     </div>
