@@ -103,22 +103,14 @@ const sendForm = async (data: FormValues) => {
     ];
 
     try {
-      sgMail
-        .send(msgs)
-        .then((response: any) => {
-          console.log(response[0].statusCode)
-          console.log(response[0].headers)
-        })
-        .catch((error: Error) => {
-          console.error('Error', error)
-        })
+      await sgMail.send(msgs)
     } catch (error: any) {
       console.error(error)
-      return new Response(error.message)
+
+      if (error.response) {
+        console.error(error.response.body)
+      }
     }
 }
-
-
-
 
 export default sendForm
