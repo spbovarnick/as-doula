@@ -56,3 +56,39 @@ export const createMessage = async (
 
   return toFormState('SUCCESS', 'Intake submitted!');
 }
+
+// export const createMessage = async (
+//   formState: FormState,
+//   formData: FormData
+// ) => {
+//   const values = createIntakeSchema.parse({
+//     firstName: formData.get('firstName'),
+//     lastName: formData.get('lastName'),
+//     email: formData.get('email'),
+//     phoneNumber: formData.get('phoneNumber'),
+//     dueDate: formData.get('dueDate'),
+//     zipCode: formData.get('zipCode'),
+//     location: formData.get('location'),
+//     birthDoula: formData.get('birthDoula'),
+//     postpartumDoula: formData.get('postpartumDoula'),
+//     siblingSupport: formData.get('siblingSupport'),
+//     addDetails: formData.get('addDetails'),
+//     });
+
+//   const res = await fetch(process.env.ROOT_URL + '/api/send', {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify(values),
+//   });
+
+//   console.log(res)
+
+//   const data = await res.json();
+//   if (res.ok) {
+//     toFormState("SUCCESS", "Intake submitted!")
+//   } else {
+//     fromErrorToFormState(data.error)
+//   }
+// }
