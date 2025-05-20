@@ -16,8 +16,6 @@ const transporter = nodemailer.createTransport({
 
 const sendForm = async (data: FormValues) => {
 
-  console.log(data.birthDoula)
-
     const msgs = [
       {
         to: data.email,
