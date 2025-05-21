@@ -15,8 +15,6 @@ const transporter = nodemailer.createTransport({
 
 const sendForm = async (data: FormValues) => {
 
-  console.log(process.env.EMAIL, process.env.GOOGLE_APP_PASSWORD)
-
   try {
     const transporter = nodemailer.createTransport({
       service: "gmail",
