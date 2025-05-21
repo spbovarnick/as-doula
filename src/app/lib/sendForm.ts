@@ -3,26 +3,17 @@
 import { FormValues } from "@/app/lib/types";
 
 import nodemailer from 'nodemailer';
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  secure: true,
-  auth: {
-    user: process.env.EMAIL,
-    pass: process.env.GOOGLE_APP_PASSWORD,
-  },
-});
-
 
 const sendForm = async (data: FormValues) => {
 
   try {
     const transporter = nodemailer.createTransport({
-      service: "gmail",
-      host: "smtp.gmail.com",
+      host: "smtp.sendgrid.net",
       port: 587,
+      secure: false,
       auth: {
-        user: process.env.EMAIL,
-        pass: process.env.GOOGLE_APP_PASSWORD,
+        user: "apikey",
+        pass: process.env.SG_API_KEY,
       },
     });
     const client = await transporter.sendMail({
