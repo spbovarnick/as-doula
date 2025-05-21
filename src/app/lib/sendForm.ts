@@ -110,8 +110,9 @@ const sendForm = async (data: FormValues) => {
           `,
     })
     return { client, self }
-  } catch (error) {
-    console.error('Something went wrong', error);
+  } catch (error: any) {
+    console.error('SendGrid error:', error);
+    return { error: error.message || "Unknown error"}
   }
 }
 
