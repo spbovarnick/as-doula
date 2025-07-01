@@ -4,7 +4,8 @@ import type { PortableTextBlock, Image } from "sanity"
 export const servicesNavQuery = groq`*[_type == "service"]{
   serviceName,
   "slug": slug.current,
-  _id
+  _id,
+  buttonScript{asset ->},
 }`;
 
 export const landingBlurbQuery = groq`*[_type == "landingBlurb"][0]`

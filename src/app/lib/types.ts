@@ -9,6 +9,7 @@ export interface ServiceNavQueryResponse {
   serviceName?: string;
   slug: Slug;
   _id: string;
+  buttonScript: ImageObject;
 }
 
 export interface ServicesQueryResponse extends ServiceNavQueryResponse {

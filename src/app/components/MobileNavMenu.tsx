@@ -6,6 +6,8 @@ import { Hamburger, Cross, ChevronDown } from './Icons';
 import styles from '../styles/MobileNavMenu.module.css'
 import { NavProps } from './Nav';
 import { usePathname, useSearchParams } from 'next/navigation';
+import Image from 'next/image';
+import ClientImage from './ClientImg';
 
 const MobileNavMenu: React.FC<NavProps> = ({ services }) => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
@@ -46,6 +48,9 @@ const MobileNavMenu: React.FC<NavProps> = ({ services }) => {
     setServicesAreOpen(!servicesAreOpen);
   }
 
+  const bigScriptClass = "h-[1.25rem] w-fit mb-2"
+  const lilScriptClass = "h-[1rem] w-fit mb-2"
+
   return (
     <div className='sm:hidden'>
       <button
@@ -66,11 +71,27 @@ const MobileNavMenu: React.FC<NavProps> = ({ services }) => {
         ref={menuRef}
       >
         <ul>
-          <li>
-            <Link href={"/about"}>About</Link>
+          <li className=''>
+            <Link href={"/about"}>
+              <Image
+                src="/buttons/about.png"
+                width={500}
+                height={500}
+                className={bigScriptClass}
+                alt="About"
+              />
+            </Link>
           </li>
           <li className=''>
-              <Link href={"/services"} className='mr-4'>Services</Link>
+              <Link href={"/services"} className='mr-2'>
+                <Image
+                  src="/buttons/services.png"
+                  width={500}
+                  height={500}
+                  className={`${bigScriptClass} inline`}
+                  alt="Services"
+                />
+              </Link>
               <button
                 className='inline-flex items-center'
                 onClick={servicesHandler}
@@ -82,13 +103,29 @@ const MobileNavMenu: React.FC<NavProps> = ({ services }) => {
                 </span>
               </button>
               <ul className={`${servicesAreOpen ? 'max-h-96' : 'max-h-0'} ${styles.services} overflow-hidden pl-3 text-base transition-[max-height] delay-200`}>
-              {services.map((service) => (
-                <li key={service._id}><Link href={`/services#${service.slug}`} >{service.serviceName}</Link></li>
+              {services && services.map((service) => (
+                <li key={service._id}>
+                  <Link href={`/services#${service.slug}`} className="nav-hover">
+                    <ClientImage
+                      img={service.buttonScript}
+                      sizes={"(max-width: 1024px) 500px, 300px"}
+                      classes={lilScriptClass}
+                    />
+                  </Link>
+                </li>
               ))}
             </ul>
           </li>
-          <li>
-            <Link href={"/contact"}>Contact</Link>
+          <li className=''>
+            <Link href={"/contact"}>
+              <Image
+                src="/buttons/contact.png"
+                width={500}
+                height={500}
+                className={bigScriptClass}
+                alt="Contact"
+              />
+            </Link>
           </li>
         </ul>
       </div>

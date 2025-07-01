@@ -29,7 +29,7 @@ export default async function Services(){
         <ServiceSection key={service._id} service={service} />
       ))}
       <div className="flex justify-center pb-5">
-        <CtaButton link="/contact" text="Contact" />
+        <CtaButton link="/contact" text="Contact" src="/buttons/contact.png" />
       </div>
     </div>
   )

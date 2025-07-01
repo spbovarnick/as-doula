@@ -31,6 +31,20 @@ export default defineType({
       type: 'array',
       of: [{ type: 'block' }],
       validation: (rule) => rule.required()
+    }),
+    defineField({
+      name: 'buttonScript',
+      title: 'Button Script',
+      type: 'image',
+      fields: [
+        defineField({
+          name: "alt",
+          title: "Alt Text",
+          type: "string",
+          description: "This text is used to optimize accessibility; just use the service name",
+          validation: (rule) => rule.required(),
+        })
+      ]
     })
   ]
 })

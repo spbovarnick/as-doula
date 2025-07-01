@@ -34,7 +34,7 @@ export default async function About(){
           <PortableText value={content?.copy} />
         </div>
         <div className="w-full flex justify-center p-5">
-          <CtaButton link="/contact" text="Contact" />
+          <CtaButton link="/contact" text="Contact" src="/buttons/contact.png" />
         </div>
       </div>
     </div>

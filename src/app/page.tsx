@@ -49,8 +49,8 @@ export default async function Home() {
             />
           }
           <div className="flex w-full justify-center mb-8 sm:mb-0 sm:absolute sm:bottom-0">
-            <CtaButton link={"/contact"} text={"Contact"}/>
-            <CtaButton link={"/services"} text={"Services"}/>
+            <CtaButton link={"/contact"} text={"Contact"} src="/buttons/contact.png" />
+            <CtaButton link={"/services"} text={"Services"} src="/buttons/services.png" />
           </div>
         </div>
       </div>

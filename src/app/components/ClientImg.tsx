@@ -17,16 +17,17 @@ interface ClientImageProps {
   img: ImageObject;
   sizes?: string;
   classes?: string;
+  alt?: string
 }
 
-export default function ClientImage({ img, sizes, classes }: ClientImageProps) {
+export default function ClientImage({ img, sizes, classes, alt }: ClientImageProps) {
   const imageProps = useNextSanityImage(client, img)
 
   return (
     <Suspense>
     <Image
       {...imageProps}
-      alt={img.alt}
+      alt={alt || img.alt }
       sizes={sizes}
       className={classes}
       quality={100}
