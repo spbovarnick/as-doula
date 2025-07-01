@@ -27,7 +27,7 @@ export default function ClientImage({ img, sizes, classes, alt }: ClientImagePro
     <Suspense>
     <Image
       {...imageProps}
-      alt={alt || img.alt }
+      alt={alt ?? "Image" }
       sizes={sizes}
       className={classes}
       quality={100}
